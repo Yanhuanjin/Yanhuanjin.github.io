@@ -267,6 +267,11 @@ myGallery:
     - /medias/featureimages/4.jpg
     - /medias/featureimages/5.jpg
     - /medias/pics/1.jpg
+    - /medias/pics/2.jpg
+    - /medias/pics/3.jpg
+    - /medias/pics/4.jpg
+    - /medias/pics/5.jpg
+    - /medias/pics/6.jpg
 
 # Whether to display post-calender in the `archive` page
 # 设置在归档页面中是否显示'文章日历'控件
