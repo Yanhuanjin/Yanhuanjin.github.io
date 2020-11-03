@@ -1,18 +1,11 @@
 ---
-​---
-title: Spring Boot注解说明@RequestMapping
+title: SpringBoot注解说明RequestMapping
 date: 2020-11-03 21:03:01
 author: 金彦焕
-top: true
-cover: true
-password: 8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92
-toc: true
-mathjax: true
 categories: JAVA
 tags:
   - JAVA
-  - Spring Boot
-​---
+  - SpringBoot
 ---
 
 **@RequestMapping注解可以将HTTP请求映射给控制器controller来处理，包括返回视图页面的controller和Rest服务的controller。是一个非常常用的注解。**
@@ -41,7 +34,10 @@ public class IndexController {
 ```
 
 如上述代码所示，到 /home 的请求会由 get() 方法来处理，而到 /home/index 的请求会由 index() 来处理。
-**@RequestMapping 来处理多个 URI**你可以将多个请求映射到一个方法上去，只需要添加一个带有请求路径值列表的 @RequestMapping 注解就行了。
+
+**@RequestMapping 来处理多个 URI**
+
+你可以将多个请求映射到一个方法上去，只需要添加一个带有请求路径值列表的 @RequestMapping 注解就行了。
 
 ```Java
 @RestController  
@@ -59,7 +55,9 @@ public class IndexController {
 }  
 ```
 
-**带有 @RequestParam 的 @RequestMapping**@RequestParam 注解配合 @RequestMapping 一起使用，可以将请求的参数同处理方法的参数绑定在一起。@RequestParam 注解使用的时候可以有一个值，也可以没有值。这个值指定了需要被映射到处理方法参数的请求参数, 代码如下所示：
+**带有 @RequestParam 的 @RequestMapping**
+
+@RequestParam 注解配合 @RequestMapping 一起使用，可以将请求的参数同处理方法的参数绑定在一起。@RequestParam 注解使用的时候可以有一个值，也可以没有值。这个值指定了需要被映射到处理方法参数的请求参数, 代码如下所示：
 
 ```java
 @RestController  
@@ -110,7 +108,11 @@ public class IndexController {
 }
 ```
 
-若请求中没有"person="的参数，那么getName()处理方法就会接受John这个默认值作为其参数。***\*用 @RequestMapping 处理 HTTP 的各种方法\****Spring MVC 的 @RequestMapping 注解能够处理 HTTP 请求的方法, 比如 GET, PUT, POST, DELETE 以及 PATCH。所有的请求默认都会是 HTTP GET 类型的。为了能将一个请求映射到一个特定的 HTTP 方法，你需要在 @RequestMapping 中使用 method 来声明 HTTP 请求所使用的方法类型，如下所示：
+若请求中没有"person="的参数，那么getName()处理方法就会接受John这个默认值作为其参数。
+
+**用 @RequestMapping 处理 HTTP 的各种方法**
+
+Spring MVC 的 @RequestMapping 注解能够处理 HTTP 请求的方法, 比如 GET, PUT, POST, DELETE 以及 PATCH。所有的请求默认都会是 HTTP GET 类型的。为了能将一个请求映射到一个特定的 HTTP 方法，你需要在 @RequestMapping 中使用 method 来声明 HTTP 请求所使用的方法类型，如下所示：
 
 ```java
 @RestController  
@@ -140,7 +142,10 @@ public class IndexController {
   
 
 在上述这段代码中， @RequestMapping 注解中的 method 元素声明了 HTTP 请求的 HTTP 方法的类型。所有的处理处理方法会处理从这同一个 URL( /home)进来的请求, 但要看指定的 HTTP 方法是什么来决定用哪个方法来处理。例如，一个 POST 类型的请求 /home 会交给 post() 方法来处理，而一个 DELETE 类型的请求 /home 则会由 delete() 方法来处理。你会看到 Spring MVC 将使用这样相同的逻辑来映射其它的方法。
-**用 @RequestMapping 来处理生产和消费对象**可以使用 @RequestMapping 注解的 produces 和 consumes 这两个元素来缩小请求映射类型的范围。为了能用请求的媒体类型来产生对象, 你要用到 @RequestMapping 的 produces 元素再结合着 @ResponseBody 注解。你也可以利用 @RequestMapping 的 comsumes 元素再结合着 @RequestBody 注解用请求的媒体类型来消费对象。下面这段代码就用到的 @RequestMapping 的生产和消费对象元素：
+
+**用 @RequestMapping 来处理生产和消费对象**
+
+可以使用 @RequestMapping 注解的 produces 和 consumes 这两个元素来缩小请求映射类型的范围。为了能用请求的媒体类型来产生对象, 你要用到 @RequestMapping 的 produces 元素再结合着 @ResponseBody 注解。你也可以利用 @RequestMapping 的 comsumes 元素再结合着 @RequestBody 注解用请求的媒体类型来消费对象。下面这段代码就用到的 @RequestMapping 的生产和消费对象元素：
 
 ```java
 @RestController  
@@ -193,7 +198,11 @@ public class IndexController {
 }  
 ```
 
-这样， post() 方法就能同时接受 text/plain 还有 text/html 的请求了。***\*使用 @RequestMapping 来处理请求参数\****@RequestMapping 直接的 params 元素可以进一步帮助我们缩小请求映射的定位范围。使用 params 元素，你可以让多个处理方法处理到同一个URL 的请求, 而这些请求的参数是不一样的。你可以用 myParams = myValue 这种格式来定义参数，也可以使用通配符来指定特定的参数值在请求中是不受支持的。
+这样， post() 方法就能同时接受 text/plain 还有 text/html 的请求了。
+
+**使用 @RequestMapping 来处理请求参数**
+
+@RequestMapping 直接的 params 元素可以进一步帮助我们缩小请求映射的定位范围。使用 params 元素，你可以让多个处理方法处理到同一个URL 的请求, 而这些请求的参数是不一样的。你可以用 myParams = myValue 这种格式来定义参数，也可以使用通配符来指定特定的参数值在请求中是不受支持的。
 
 ```java
 @RestController  
@@ -214,7 +223,11 @@ public class IndexController {
 }  
 ```
 
-在这段代码中，getParams() 和 getParamsDifferent() 两个方法都能处理相同的一个 URL (/home/fetch) ，但是会根据 params 元素的配置不同而决定具体来执行哪一个方法。例如，当 URL 是 /home/fetch?id=10 的时候, getParams() 会执行，因为 id 的值是10,。对于 localhost:8080/home/fetch?personId=20 这个URL, getParamsDifferent() 处理方法会得到执行，因为 id 值是 20。***\*使用 @RequestMapping 处理动态 URI\****@RequestMapping 注解可以同 @PathVaraible 注解一起使用，用来处理动态的 URI，URI 的值可以作为控制器中处理方法的参数。你也可以使用正则表达式来只处理可以匹配到正则表达式的动态 URI。
+在这段代码中，getParams() 和 getParamsDifferent() 两个方法都能处理相同的一个 URL (/home/fetch) ，但是会根据 params 元素的配置不同而决定具体来执行哪一个方法。例如，当 URL 是 /home/fetch?id=10 的时候, getParams() 会执行，因为 id 的值是10,。对于 localhost:8080/home/fetch?personId=20 这个URL, getParamsDifferent() 处理方法会得到执行，因为 id 值是 20。
+
+**使用 @RequestMapping 处理动态 URI**
+
+@RequestMapping 注解可以同 @PathVaraible 注解一起使用，用来处理动态的 URI，URI 的值可以作为控制器中处理方法的参数。你也可以使用正则表达式来只处理可以匹配到正则表达式的动态 URI。
 
 ```java
 @RestController  
@@ -237,7 +250,11 @@ public class IndexController {
 
  
 
-在这段代码中，方法 getDynamicUriValue() 会在发起到 localhost:8080/home/fetch/10 的请求时执行。这里 getDynamicUriValue() 方法 id 参数也会动态地被填充为 10 这个值。方法 getDynamicUriValueRegex() 会在发起到 localhost:8080/home/fetch/category/shirt 的请求时执行。不过，如果发起的请求是 /home/fetch/10/shirt 的话，会抛出异常，因为这个URI并不能匹配正则表达式。@PathVariable 同 @RequestParam的运行方式不同。你使用 @PathVariable 是为了从 URI 里取到查询参数值。换言之，你使用 @RequestParam 是为了从 URI 模板中获取参数值。***\*@RequestMapping 默认的处理方法\****在控制器类中，你可以有一个默认的处理方法，它可以在有一个向默认 URI 发起的请求时被执行。
+在这段代码中，方法 getDynamicUriValue() 会在发起到 localhost:8080/home/fetch/10 的请求时执行。这里 getDynamicUriValue() 方法 id 参数也会动态地被填充为 10 这个值。方法 getDynamicUriValueRegex() 会在发起到 localhost:8080/home/fetch/category/shirt 的请求时执行。不过，如果发起的请求是 /home/fetch/10/shirt 的话，会抛出异常，因为这个URI并不能匹配正则表达式。@PathVariable 同 @RequestParam的运行方式不同。你使用 @PathVariable 是为了从 URI 里取到查询参数值。换言之，你使用 @RequestParam 是为了从 URI 模板中获取参数值。
+
+**@RequestMapping 默认的处理方法**
+
+在控制器类中，你可以有一个默认的处理方法，它可以在有一个向默认 URI 发起的请求时被执行。
 
 ```java
 @RestController  
@@ -250,7 +267,11 @@ public class IndexController {
 }  
 ```
 
-在这段代码中，向 /home 发起的一个请求将会由 default() 来处理，因为注解并没有指定任何值。**@RequestMapping 快捷方式**Spring 4.3 引入了方法级注解的变体，也被叫做 @RequestMapping 的组合注解。组合注解可以更好的表达被注解方法的语义。它们所扮演的角色就是针对 @RequestMapping 的封装，而且成了定义端点的标准方法。例如，@GetMapping 是一个组合注解，它所扮演的是 @RequestMapping(method =RequestMethod.GET) 的一个快捷方式。方法级别的注解变体有如下几个：@GetMapping@PostMapping@PutMapping@DeleteMapping@PatchMapping如下代码展示了如何使用组合注解：
+在这段代码中，向 /home 发起的一个请求将会由 default() 来处理，因为注解并没有指定任何值。
+
+**@RequestMapping 快捷方式**
+
+Spring 4.3 引入了方法级注解的变体，也被叫做 @RequestMapping 的组合注解。组合注解可以更好的表达被注解方法的语义。它们所扮演的角色就是针对 @RequestMapping 的封装，而且成了定义端点的标准方法。例如，@GetMapping 是一个组合注解，它所扮演的是 @RequestMapping(method =RequestMethod.GET) 的一个快捷方式。方法级别的注解变体有如下几个：@GetMapping@PostMapping@PutMapping@DeleteMapping@PatchMapping如下代码展示了如何使用组合注解：
 
 ```java
 @RestController 
