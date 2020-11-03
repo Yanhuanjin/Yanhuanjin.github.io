@@ -8,7 +8,7 @@ tags:
   - SpringBoot
 ---
 
-**@RequestMapping注解可以将HTTP请求映射给控制器controller来处理，包括返回视图页面的controller和Rest服务的controller。是一个非常常用的注解。**
+> **@RequestMapping注解可以将HTTP请求映射给控制器controller来处理，包括返回视图页面的controller和Rest服务的controller。是一个非常常用的注解。**
 
 在 Spring MVC 应用程序中，RequestDispatcher (在 Front Controller 之下) 这个 servlet 负责将进入的 HTTP 请求路由到控制器的处理方法。在对 Spring MVC 进行的配置的时候, 需要指定请求与处理方法之间的映射关系。如下图：
 
@@ -20,15 +20,15 @@ tags:
 @RestController  
 @RequestMapping("/home")  
 public class IndexController {
-  	@RequestMapping("/")      
-  	String get() {
+    @RequestMapping("/")      
+    String get() {
         //mapped to hostname:port/home/ 
-    	return “Hello from get”; 
+        return "Hello from get"; 
 	}     
-	@RequestMapping("/index")
-  	String index() {
+    @RequestMapping("/index")
+    String index() {
         //mapped to hostname:port/home/index/
-        return “Hello from index”; 
+        return "Hello from index"; 
     } 
 }  
 ```
@@ -44,13 +44,13 @@ public class IndexController {
 @RequestMapping("/home")  
 public class IndexController {        
     @RequestMapping(value = {          
-      “”, 
-      “/page”,   
-      “page*”,   
-      “view/*,**/msg”
-  	})     
-  	String indexMultipleMapping() {        
-    	 return “Hello from index multiple mapping.”;   
+        "", 
+        "/page",   
+        "page*",   
+        "view/*,**/msg"
+    })     
+    String indexMultipleMapping() {        
+        return "Hello from index multiple mapping.";   
     } 
 }  
 ```
@@ -63,16 +63,15 @@ public class IndexController {
 @RestController  
 @RequestMapping("/home")  
 public class IndexController {        
-	@RequestMapping(value = "/id")      
-	String getIdByValue(@RequestParam("id") String personId) 	{
+    @RequestMapping(value = "/id")      
+    String getIdByValue(@RequestParam("id") String personId) {
         System.out.println("ID is " + personId);          
-      	return "Get ID from query string of URL with value element";     
-	}      
-	@RequestMapping(value = "/personId")      
-  	String getId(@RequestParam String personId) {   
-   	# 如果请求参数和处理方法参数的名称一样的话，@RequestParam 注解的     # value 这个参数就可省掉     
-      	System.out.println("ID is " + personId);          
-      	return "Get ID from query string of URL without value element";      
+        return "Get ID from query string of URL with value element";     
+    }      
+    @RequestMapping(value = "/personId") String getId(@RequestParam String personId) {   
+    # 如果请求参数和处理方法参数的名称一样的话，@RequestParam 注解的value 这个参数就可省掉     
+        System.out.println("ID is " + personId);          
+        return "Get ID from query string of URL without value element";      
     }  
 }  
 ```
@@ -83,9 +82,9 @@ public class IndexController {
 @RestController 
 @RequestMapping("/home")  
 public class IndexController {      
-	@RequestMapping(value = “/name”)      
- 	String getName(@RequestParam(value = “person”, required = false) String personName) {
-    	return “Required element of request param”;      
+    @RequestMapping(value = "/name")      
+    String getName(@RequestParam(value = "person", required = false) String personName) {
+        return "Required element of request param";      
     }  
 }  
 ```
@@ -101,9 +100,9 @@ public class IndexController {
 @RestController  
 @RequestMapping("/home")  
 public class IndexController {      
-  	@RequestMapping(value = "/name")
-  	String getName(@RequestParam(value="person", defaultValue ="John") String personName) {        	
-    	return "Required element of request param";      
+    @RequestMapping(value = "/name")
+    String getName(@RequestParam(value="person", defaultValue ="John") String personName) {        	
+        return "Required element of request param";      
     }  
 }
 ```
@@ -119,23 +118,25 @@ Spring MVC 的 @RequestMapping 注解能够处理 HTTP 请求的方法, 比如 G
 @RequestMapping("/home")  
 public class IndexController {      
     @RequestMapping(method = RequestMethod.GET)      
-  	String get() {          
-       	return "Hello from get";      
-   	}      
-   	@RequestMapping(method = RequestMethod.DELETE)          	String delete() {         
-       	return "Hello from delete";      }      
-   	@RequestMapping(method = RequestMethod.POST)      
-   	String post() {          
-      	return "Hello from post";      
-   	}      
-   	@RequestMapping(method = RequestMethod.PUT)      
-   	String put() {          
-      	return "Hello from put";      
-   	}      
-   	@RequestMapping(method = RequestMethod.PATCH)      
-   	String patch() {          
-      	return "Hello from patch";      
-   	}  
+    String get() {          
+        return "Hello from get";      
+    }      
+    @RequestMapping(method = RequestMethod.DELETE)
+    String delete() {         
+        return "Hello from delete";      
+    }      
+    @RequestMapping(method = RequestMethod.POST)      
+    String post() {          
+        return "Hello from post";      
+    }      
+    @RequestMapping(method = RequestMethod.PUT)      
+    String put() {          
+        return "Hello from put";      
+    }      
+    @RequestMapping(method = RequestMethod.PATCH)      
+    String patch() {          
+        return "Hello from patch";      
+    }  
 }
 ```
 
@@ -151,19 +152,18 @@ public class IndexController {
 @RestController  
 @RequestMapping("/home")  
 public class IndexController {      
-  	@RequestMapping(value = "/prod", produces = {      				"application/JSON"      
-  	})      
-  	@ResponseBody      
-  	String getProduces() {          
-    	return "Produces attribute";      
-  	}        
-  	@RequestMapping(value = "/cons", consumes = {          
-    	"application/JSON",          
-    	"application/XML"      
-  	})      
-  	String getConsumes() {          
-    	return "Consumes attribute";      
-  	}  
+    @RequestMapping(value = "/prod", produces = {"application/JSON"})      
+    @ResponseBody      
+    String getProduces() {          
+        return "Produces attribute";      
+    }        
+    @RequestMapping(value = "/cons", consumes = {          
+        "application/JSON",          
+        "application/XML"      
+    })      
+    String getConsumes() {          
+        return "Consumes attribute";      
+    }  
 }  
 ```
 
@@ -173,12 +173,10 @@ public class IndexController {
 @RestController  
 @RequestMapping("/home")  
 public class IndexController {      
-  	@RequestMapping(value = “/head”, headers = {          
-    	“content-type=text/plain”      
-  	})      
-  	String post() {          
-    	return “Mapping applied along with headers”;      
-  	}  
+    @RequestMapping(value = "/head", headers = {"content-type=text/plain"})      
+    String post() {          
+        return "Mapping applied along with headers";      
+    }  
 }  
 ```
 
@@ -188,13 +186,13 @@ public class IndexController {
 @RestController  
 @RequestMapping("/home")  
 public class IndexController {      
-	@RequestMapping(value = “/head”, headers = {          
-    	“content-type=text/plain”,          
-    	“content-type=text/html”      
-  	}) 
-  	String post() {          
-    	return “Mapping applied along with headers”;      
-  	}  
+	@RequestMapping(value = "/head", headers = {          
+        "content-type=text/plain",          
+        "content-type=text/html"      
+    }) 
+    String post() {          
+        return "Mapping applied along with headers";      
+    }  
 }  
 ```
 
@@ -208,18 +206,14 @@ public class IndexController {
 @RestController  
 @RequestMapping("/home")  
 public class IndexController {      
-  	@RequestMapping(value = “/fetch”, params = {          
-    	“personId=10”      
-  	})      
-  	String getParams(@RequestParam(“personId”) String id) {       	return “Fetched parameter = " + id;      
-  	}      
-  	@RequestMapping(value = “/fetch”, params = {          
-    	“personId=20”      
-  	})      
-  	String getParamsDifferent(@RequestParam(“personId”) 
-                             String id) {          
-    	return “Fetched parameter = " + id;      
-  	}  
+    @RequestMapping(value = "/fetch", params = {"personId=10"})      
+    String getParams(@RequestParam("personId") String id) {
+        return "Fetched parameter = " + id;      
+    }      
+    @RequestMapping(value = "/fetch", params = {"personId=20"})      
+    String getParamsDifferent(@RequestParam("personId") String id) {          
+        return "Fetched parameter = " + id;      
+    }  
 }  
 ```
 
@@ -231,24 +225,20 @@ public class IndexController {
 
 ```java
 @RestController  
-@RequestMapping(”/home”)  
+@RequestMapping("/home")  
 public class IndexController {      
-    @RequestMapping(value = “/fetch/{id}”, 
-                  	method = RequestMethod.GET)  
+    @RequestMapping(value = "/fetch/{id}", method = RequestMethod.GET)  
     String getDynamicUriValue(@PathVariable String id) {
-    	System.out.println("ID is " + id);         
-    	return “Dynamic URI parameter fetched”;      
+        System.out.println("ID is " + id);         
+        return "Dynamic URI parameter fetched";      
     }      
-  	@RequestMapping(value = "fetch/{id:[a-z]+}/{name}",                         method = RequestMethod.GET)      
-  	String getDynamicUriValueRegex(@PathVariable(“name”) 
-  									String name) {          
-    	System.out.println("Name is " + name);          
-    	return “Dynamic URI parameter fetched using regex”; 
+    @RequestMapping(value = "fetch/{id:[a-z]+}/{name}", method = RequestMethod.GET)      
+    String getDynamicUriValueRegex(@PathVariable("name") String name) {          
+        System.out.println("Name is " + name);          
+        return "Dynamic URI parameter fetched using regex"; 
     }  
 } 
 ```
-
- 
 
 在这段代码中，方法 getDynamicUriValue() 会在发起到 localhost:8080/home/fetch/10 的请求时执行。这里 getDynamicUriValue() 方法 id 参数也会动态地被填充为 10 这个值。方法 getDynamicUriValueRegex() 会在发起到 localhost:8080/home/fetch/category/shirt 的请求时执行。不过，如果发起的请求是 /home/fetch/10/shirt 的话，会抛出异常，因为这个URI并不能匹配正则表达式。@PathVariable 同 @RequestParam的运行方式不同。你使用 @PathVariable 是为了从 URI 里取到查询参数值。换言之，你使用 @RequestParam 是为了从 URI 模板中获取参数值。
 
@@ -258,11 +248,11 @@ public class IndexController {
 
 ```java
 @RestController  
-@RequestMapping(”/home”)  
+@RequestMapping("/home")  
 public class IndexController {      
-	@RequestMapping()      
- 	String default () {          
-    	return “This is a default method for the class”;     
+    @RequestMapping()      
+    String default () {          
+        return "This is a default method for the class";     
     }  
 }  
 ```
@@ -277,34 +267,34 @@ Spring 4.3 引入了方法级注解的变体，也被叫做 @RequestMapping 的�
 @RestController 
 @RequestMapping("/home")  
 public class IndexController {     
-	
-	@GetMapping("/person")      
-	public @ResponseBody ResponseEntity <String> getPerson({     	return new ResponseEntity < String > ("Response from GET", HttpStatus.OK);      
- 	}      
+    @GetMapping("/person")      
+    public @ResponseBody ResponseEntity <String> getPerson({
+        return new ResponseEntity < String > ("Response from GET", HttpStatus.OK);      
+    }      
 
-	@GetMapping("/person/{id}")      
-	public @ResponseBody ResponseEntity < String > getPersonById(@PathVariable String id) {         
-  		return new ResponseEntity < String > ("Response from GET with id " + id, HttpStatus.OK);      
-	}      
+    @GetMapping("/person/{id}")      
+    public @ResponseBody ResponseEntity < String > getPersonById(@PathVariable String id) {         
+        return new ResponseEntity < String > ("Response from GET with id " + id, HttpStatus.OK);      
+    }      
 	
     @PostMapping("/person")      
-	public @ResponseBody ResponseEntity < String > postPerson() {          
-  		return new ResponseEntity < String > ("Response from POST method", HttpStatus.OK);      
-	}   
+    public @ResponseBody ResponseEntity < String > postPerson() {          
+        return new ResponseEntity < String > ("Response from POST method", HttpStatus.OK);      
+    }   
                                                            
-	@PutMapping("/person")      
-	public @ResponseBody ResponseEntity < String > putPerson() {          
-  		return new ResponseEntity < String > ("Response from PUT method", HttpStatus.OK);      
+    @PutMapping("/person")      
+    public @ResponseBody ResponseEntity < String > putPerson() {          
+        return new ResponseEntity < String > ("Response from PUT method", HttpStatus.OK);      
     }
                                                            
-	@DeleteMapping("/person")      
-	public @ResponseBody ResponseEntity < String > deletePerson() {          
-  		return new ResponseEntity < String > ("Response from DELETE method", HttpStatus.OK);      
-	}  
+    @DeleteMapping("/person")      
+    public @ResponseBody ResponseEntity < String > deletePerson() {          
+        return new ResponseEntity < String > ("Response from DELETE method", HttpStatus.OK);      
+    }  
                                                            
-	@PatchMapping("/person")      
-	public @ResponseBody ResponseEntity < String > patchPerson() {          
-  		return new ResponseEntity < String > ("Response from PATCH method", HttpStatus.OK);      
+    @PatchMapping("/person")      
+    public @ResponseBody ResponseEntity < String > patchPerson() {          
+    return new ResponseEntity < String > ("Response from PATCH method", HttpStatus.OK);      
     }  
 }  
 ```
