@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hero</title>
+  <title>King</title>
   
-  <subtitle>AI Boosting</subtitle>
+  <subtitle>Dream Boosting</subtitle>
   <link href="http://yanhuanjin.github.io/atom.xml" rel="self"/>
   
   <link href="http://yanhuanjin.github.io/"/>
-  <updated>2020-11-02T06:16:44.893Z</updated>
+  <updated>2020-11-04T00:57:06.003Z</updated>
   <id>http://yanhuanjin.github.io/</id>
   
   <author>
@@ -17,23 +17,29 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="http://yanhuanjin.github.io/2020/11/02/hello-world/"/>
-    <id>http://yanhuanjin.github.io/2020/11/02/hello-world/</id>
-    <published>2020-11-02T05:11:32.715Z</published>
-    <updated>2020-11-02T06:16:44.893Z</updated>
+    <title>SpringBoot注解说明@RequestMapping</title>
+    <link href="http://yanhuanjin.github.io/2020/11/03/java-zhu-jie-requestmapping/"/>
+    <id>http://yanhuanjin.github.io/2020/11/03/java-zhu-jie-requestmapping/</id>
+    <published>2020-11-03T13:03:01.000Z</published>
+    <updated>2020-11-04T00:57:06.003Z</updated>
     
     
       
       
         
         
-    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;@RequestMapping注解可以将HTTP请求映射给控制器controller来处理，包括返回视图页面的controller和Rest服务的controller。是一个非常常用的注解。&lt;/strong&gt;&lt;/p&gt;
+&lt;/block</summary>
         
       
     
     
     
+    <category term="JAVA" scheme="http://yanhuanjin.github.io/categories/JAVA/"/>
+    
+    
+    <category term="Spring Boot" scheme="http://yanhuanjin.github.io/tags/Spring-Boot/"/>
     
   </entry>
   
