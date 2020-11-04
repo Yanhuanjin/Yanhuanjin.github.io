@@ -4,7 +4,7 @@ date: 2020-11-03 21:03:01
 author: 金彦焕
 categories: JAVA
 tags:
-  - SpringBoot
+  - Spring Boot
 ---
 
 > **@RequestMapping注解可以将HTTP请求映射给控制器controller来处理，包括返回视图页面的controller和Rest服务的controller。是一个非常常用的注解。**
