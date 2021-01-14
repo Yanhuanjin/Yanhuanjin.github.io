@@ -486,7 +486,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    835
+                    834
                 </div>
                 
 
@@ -600,9 +600,9 @@ data1</code></pre>
     &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;  # DataNode数据存储
     &lt;value&gt;file:/usr/local/hadoop/hadoop_data/hdfs/datanode&lt;/value&gt;
 &lt;/property&gt;</code></pre>
-<h2 id="ifconfig-确认两个网卡-内网ip是192-168-56-101。对外网络连接正常"><a href="#ifconfig-确认两个网卡-内网ip是192-168-56-101。对外网络连接正常" class="headerlink" title="ifconfig 确认两个网卡,内网ip是192.168.56.101。对外网络连接正常"></a>ifconfig 确认两个网卡,内网ip是192.168.56.101。对外网络连接正常</h2><p>复制data1服务器到data2、data3,更改以上必要设置</p>
-<p>##6.master服务器 ip设置、hostname设置</p>
-<h3 id="hdfs-site-xml-2"><a href="#hdfs-site-xml-2" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><p>删除DataNode配置，保留NameNode配置</p>
+<p>ifconfig 确认两个网卡,内网ip是192.168.56.101。对外网络连接正常</p>
+<p>复制data1服务器到data2、data3,更改以上必要设置</p>
+<h2 id="6-master服务器-ip设置、hostname设置"><a href="#6-master服务器-ip设置、hostname设置" class="headerlink" title="6.master服务器 ip设置、hostname设置"></a>6.master服务器 ip设置、hostname设置</h2><h3 id="hdfs-site-xml-2"><a href="#hdfs-site-xml-2" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><p>删除DataNode配置，保留NameNode配置</p>
 <pre><code>&lt;property&gt;
     &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;  # NameNode数据存储目录
     &lt;value&gt;file:/usr/local/hadoop/hadoop_data/hdfs/namenode&lt;/value&gt;
