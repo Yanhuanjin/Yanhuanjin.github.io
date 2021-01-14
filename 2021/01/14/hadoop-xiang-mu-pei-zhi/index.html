@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="从零开始Django搭建Python Web项目, King">
+    <meta name="keywords" content="King">
     <meta name="description" content="Insight into the future.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>从零开始Django搭建Python Web项目 | King</title>
+    <title>King</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -330,7 +330,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">从零开始Django搭建Python Web项目</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -445,25 +445,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Django/">
-                                <span class="chip bg-color">Django</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Python/" class="post-category">
-                                Python
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -472,28 +459,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-10
+                    2021-01-14
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-10
+                    2021-01-14
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    168
+                    835
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    4 分
                 </div>
                 
 
@@ -508,38 +495,107 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="从零开始：Django搭建Web"><a href="#从零开始：Django搭建Web" class="headerlink" title="从零开始：Django搭建Web"></a>从零开始：Django搭建Web</h1><p>Created: Oct 29, 2020 10:39 AM<br>Updated: Nov 10, 2020 2:01 PM</p>
-<ol>
-<li><p>在任意存储位置，新建文件夹，例如DjangoTest。</p>
-<p> <img src="/2020/11/10/cong-ling-kai-shi-da-jian-django-xiang-mu/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9.png" alt="创建文件夹"></p>
-</li>
-<li><p>在资源管理器地址栏键入cmd，进入命令行界面（对，直接在这里键入cmd）。</p>
-<p> <img src="/2020/11/10/cong-ling-kai-shi-da-jian-django-xiang-mu/%E6%89%93%E5%BC%80%E5%91%BD%E4%BB%A4%E8%A1%8C.png" alt="打开命令行"></p>
-</li>
-<li><p>创建虚拟环境</p>
-<p> 这里环境名称我用test。</p>
-<pre class="line-numbers language-python"><code class="language-python">python <span class="token operator">-</span>m venv test<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>激活虚拟环境</p>
-<pre class="line-numbers language-python"><code class="language-python">test\Scripts\activate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p> 可以看到前面多了一个括号，括号内时虚拟环境的名称</p>
-<p> <img src="/2020/11/10/cong-ling-kai-shi-da-jian-django-xiang-mu/%E6%BF%80%E6%B4%BB%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.png" alt="激活虚拟环境"></p>
-</li>
-<li><p>使用pip安装Django</p>
-<pre class="line-numbers language-python"><code class="language-python">pip install Django<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>在Django中创建项目</p>
-<p> 使用PyCharm打开DjangoTest文件夹，在Terminal窗口中输入</p>
-<pre class="line-numbers language-python"><code class="language-python">django<span class="token operator">-</span>admin<span class="token punctuation">.</span>py startproject my_blog <span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>创建数据库</p>
-<pre class="line-numbers language-python"><code class="language-python">python manage<span class="token punctuation">.</span>py migrate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>启动服务器</p>
-<pre class="line-numbers language-python"><code class="language-python">python manage<span class="token punctuation">.</span>py runserver<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-</ol>
-<p>完毕。</p>
+                <h2 id="1-查看Java安装路径"><a href="#1-查看Java安装路径" class="headerlink" title="1.查看Java安装路径"></a>1.查看Java安装路径</h2><pre><code>update-alternatives --display java
+&gt;&gt; /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java</code></pre>
+<p>hadoop安装在以下位置: /usr/local/hadoop</p>
+<h2 id="2-Hadoop-环境变量配置"><a href="#2-Hadoop-环境变量配置" class="headerlink" title="2.Hadoop 环境变量配置"></a>2.Hadoop 环境变量配置</h2><p>.bashrc配置 【~/.bashrc: 当前用户 /etc/profile: 所有用户 终端：仅当前终端窗口】</p>
+<h3 id="HOME文件夹配置"><a href="#HOME文件夹配置" class="headerlink" title="HOME文件夹配置"></a>HOME文件夹配置</h3><pre><code>export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
+export HADOOP_HOME=/usr/local/hadoop</code></pre>
+<h3 id="具体环境配置"><a href="#具体环境配置" class="headerlink" title="具体环境配置"></a>具体环境配置</h3><pre><code>export PATH=$PATH:$HADOOP_HOME/bin  # 各项运行文件，包括Hadoop、HDFS、YARN等。
+export PATH=$PATH:$HADOOP_HOME/sbin  # shell运行文件
+export HADOOP_MAPRED_HOME=$HADOOP_HOME  # 单机版，所以MapReduce、HDFS、YARN等都在一个文件夹？
+export HADOOP_COMMON_HOME=$HADOOP_HOME
+export HADOOP_HDFS_HOME=$HADOOP_HOME
+export YARN_HOME=$HADOOP_HOME
+export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/naitve  # 一些函数库配置
+export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"  # 指定非Java类包的位置
+export JAVA_LIBRARY_PATH=$HADOOP_HOME/lib/native:$JAVA_LIBRARY_PATH  # 动态链接库的位置</code></pre>
+<h2 id="3-Hadoop配置设置文件"><a href="#3-Hadoop配置设置文件" class="headerlink" title="3.Hadoop配置设置文件"></a>3.Hadoop配置设置文件</h2><h3 id="Hadoop-env-sh"><a href="#Hadoop-env-sh" class="headerlink" title="Hadoop-env.sh"></a>Hadoop-env.sh</h3><pre><code>export JAVA_HOME=${JAVA_HOME} &gt;&gt;
+export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64</code></pre>
+<h3 id="core-site-xml"><a href="#core-site-xml" class="headerlink" title="core-site.xml"></a>core-site.xml</h3><h4 id="设置HDFS的默认名称"><a href="#设置HDFS的默认名称" class="headerlink" title="设置HDFS的默认名称"></a>设置HDFS的默认名称</h4><pre><code>&lt;configuration&gt;
+&lt;property&gt;
+    &lt;name&gt;fs.default.name&lt;/name&gt;
+    &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;
+&lt;/property&gt;
+&lt;/configuration&gt;</code></pre>
+<h4 id="yarn-site-xml-MapReduce2-YARN-相关配置"><a href="#yarn-site-xml-MapReduce2-YARN-相关配置" class="headerlink" title="yarn-site.xml MapReduce2 (YARN)相关配置"></a>yarn-site.xml MapReduce2 (YARN)相关配置</h4><pre><code>&lt;property&gt;
+    &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
+    &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;
+    &lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;
+&lt;/property&gt;</code></pre>
+<h3 id="mapred-site-xml"><a href="#mapred-site-xml" class="headerlink" title="mapred-site.xml"></a>mapred-site.xml</h3><pre><code>&lt;configuration&gt;
+&lt;property&gt;
+    &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
+    &lt;value&gt;yarn&lt;/value&gt;
+&lt;/property&gt;
+&lt;/configuration&gt;</code></pre>
+<h3 id="hdfs-site-xml"><a href="#hdfs-site-xml" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><pre><code>&lt;property&gt;
+    &lt;name&gt;dfs.replication&lt;/name&gt;  # blocks副本备份数量
+    &lt;value&gt;3&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;  # NameNode数据存储目录
+    &lt;value&gt;file:/usr/local/hadoop/hadoop_data/hdfs/namenode&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;  # DataNode数据存储
+    &lt;value&gt;file:/usr/local/hadoop/hadoop_data/hdfs/datanode&lt;/value&gt;
+&lt;/property&gt;</code></pre>
+<h2 id="4-创建并格式化HDFS目录"><a href="#4-创建并格式化HDFS目录" class="headerlink" title="4.创建并格式化HDFS目录"></a>4.创建并格式化HDFS目录</h2><h3 id="创建NameNode数据存储目录"><a href="#创建NameNode数据存储目录" class="headerlink" title="创建NameNode数据存储目录"></a>创建NameNode数据存储目录</h3><h3 id="创建DataNode数据存储目录"><a href="#创建DataNode数据存储目录" class="headerlink" title="创建DataNode数据存储目录"></a>创建DataNode数据存储目录</h3><h3 id="将Hadoop目录所有者更改为hduser"><a href="#将Hadoop目录所有者更改为hduser" class="headerlink" title="将Hadoop目录所有者更改为hduser"></a>将Hadoop目录所有者更改为hduser</h3><pre><code>chown hduser:hduser -R /usr/local/hadoop</code></pre>
+<h2 id="5-data1服务器-ip设置"><a href="#5-data1服务器-ip设置" class="headerlink" title="5.data1服务器 ip设置"></a>5.data1服务器 ip设置</h2><pre><code>vi /etc/network/interfaces
+
+# NAT interface
+auto eth0
+iface eth0 inet dhcp
+
+# host only interface
+iface eth1 inet static
+address    192.168.56.101
+netmask    255.255.255.0
+network    192.168.56.0    
+broadcast    192.168.56.255</code></pre>
+<h3 id="更改hostname"><a href="#更改hostname" class="headerlink" title="更改hostname"></a>更改hostname</h3><pre><code>/etc/hostname
+data1</code></pre>
+<h3 id="编辑host文件"><a href="#编辑host文件" class="headerlink" title="编辑host文件"></a>编辑host文件</h3><pre><code>/etc/hosts
+
+192.168.56.100    master
+192.168.56.101    data1
+192.168.56.102    data2
+192.168.56.103    data3</code></pre>
+<h3 id="core-site-xml-1"><a href="#core-site-xml-1" class="headerlink" title="core-site.xml"></a>core-site.xml</h3><p>localhost改为master</p>
+<h3 id="yarn-site-xml"><a href="#yarn-site-xml" class="headerlink" title="yarn-site.xml"></a>yarn-site.xml</h3><pre><code>&lt;property&gt;
+    &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;
+    &lt;value&gt;master:8025&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;
+    &lt;value&gt;master:8030&lt;/value&gt;
+&lt;/property&gt;
+&lt;property&gt;
+    &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;
+    &lt;value&gt;master:8050&lt;/value&gt;
+&lt;/property&gt;</code></pre>
+<h3 id="mapred-site-xml-1"><a href="#mapred-site-xml-1" class="headerlink" title="mapred-site.xml"></a>mapred-site.xml</h3><pre><code>&lt;property&gt;
+    &lt;name&gt;mapred.job.tracker&lt;/name&gt;
+    &lt;value&gt;master:54311&lt;/value&gt;
+&lt;/property&gt;</code></pre>
+<h3 id="hdfs-site-xml-1"><a href="#hdfs-site-xml-1" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><p>删除namenode配置，保留DataNode配置</p>
+<pre><code>&lt;property&gt;
+    &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;  # DataNode数据存储
+    &lt;value&gt;file:/usr/local/hadoop/hadoop_data/hdfs/datanode&lt;/value&gt;
+&lt;/property&gt;</code></pre>
+<h2 id="ifconfig-确认两个网卡-内网ip是192-168-56-101。对外网络连接正常"><a href="#ifconfig-确认两个网卡-内网ip是192-168-56-101。对外网络连接正常" class="headerlink" title="ifconfig 确认两个网卡,内网ip是192.168.56.101。对外网络连接正常"></a>ifconfig 确认两个网卡,内网ip是192.168.56.101。对外网络连接正常</h2><p>复制data1服务器到data2、data3,更改以上必要设置</p>
+<p>##6.master服务器 ip设置、hostname设置</p>
+<h3 id="hdfs-site-xml-2"><a href="#hdfs-site-xml-2" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><p>删除DataNode配置，保留NameNode配置</p>
+<pre><code>&lt;property&gt;
+    &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;  # NameNode数据存储目录
+    &lt;value&gt;file:/usr/local/hadoop/hadoop_data/hdfs/namenode&lt;/value&gt;
+&lt;/property&gt;</code></pre>
+<h3 id="编辑master文件"><a href="#编辑master文件" class="headerlink" title="编辑master文件"></a>编辑master文件</h3><pre><code>/usr/local/hadoop/etc/hadoop/masters</code></pre>
+<h3 id="编辑slaves文件"><a href="#编辑slaves文件" class="headerlink" title="编辑slaves文件"></a>编辑slaves文件</h3><pre><code>/usr/local/hadoop/etc/hadoop/slaves</code></pre>
 
             </div>
             <hr/>
@@ -565,7 +621,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yanhuanjin.github.io/2020/11/10/cong-ling-kai-shi-da-jian-django-xiang-mu/">http://yanhuanjin.github.io/2020/11/10/cong-ling-kai-shi-da-jian-django-xiang-mu/</a>
+                    <a href="http://yanhuanjin.github.io/2021/01/14/hadoop-xiang-mu-pei-zhi/">http://yanhuanjin.github.io/2021/01/14/hadoop-xiang-mu-pei-zhi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -602,11 +658,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Django/">
-                                    <span class="chip bg-color">Django</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -818,9 +870,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2021/01/14/hadoop-xiang-mu-pei-zhi/">
                     <div class="card-image">
@@ -840,9 +893,9 @@ hadoop安装在以下位置: /u
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-14
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-14
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -851,6 +904,7 @@ hadoop安装在以下位置: /u
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -861,34 +915,36 @@ hadoop安装在以下位置: /u
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/03/java-zhu-jie-requestmapping/">
+                <a href="/2020/11/10/cong-ling-kai-shi-da-jian-django-xiang-mu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="SpringBoot注解说明@RequestMapping">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="从零开始Django搭建Python Web项目">
                         
-                        <span class="card-title">SpringBoot注解说明@RequestMapping</span>
+                        <span class="card-title">从零开始Django搭建Python Web项目</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-@RequestMapping注解可以将HTTP请求映射给控制器controller来处理，包括返回视图页面的controller和Rest服务的controller。是一个非常常用的注解。
+                            从零开始：Django搭建WebCreated: Oct 29, 2020 10:39 AMUpdated: Nov 10, 2020 2:01 PM
 
-在 Spring MVC 应用程序中，Req
+在任意存储位置，新建文件夹，例如DjangoTest。
+ 
+
+在资源管理器地址栏键入c
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JAVA/" class="post-category">
-                                    JAVA
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
                                 </a>
                             
                             
@@ -898,8 +954,8 @@ hadoop安装在以下位置: /u
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Spring-Boot/">
-                        <span class="chip bg-color">Spring Boot</span>
+                    <a href="/tags/Django/">
+                        <span class="chip bg-color">Django</span>
                     </a>
                     
                 </div>
