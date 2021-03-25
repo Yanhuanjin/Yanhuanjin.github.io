@@ -6,7 +6,7 @@
   <link href="http://yanhuanjin.github.io/atom.xml" rel="self"/>
   
   <link href="http://yanhuanjin.github.io/"/>
-  <updated>2021-03-25T06:32:55.619Z</updated>
+  <updated>2021-03-25T06:35:17.588Z</updated>
   <id>http://yanhuanjin.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hadoop分布式集群配置错误解决记录</title>
+    <link href="http://yanhuanjin.github.io/2021/03/01/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/"/>
+    <id>http://yanhuanjin.github.io/2021/03/01/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/</id>
+    <published>2021-03-01T09:23:01.000Z</published>
+    <updated>2021-03-25T06:35:17.588Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;##1.背景&lt;br&gt;继上次配置好hadoop真分布式之后，这次启动后，调用hdfs命令总是报错，拒绝9000远程访问，但是端口还是好的（未占用）。搜了一圈网上的解决方案，一个个试过去都不行，最后导致namenode都起不来了，心态差点崩了，就差重新装一遍了。&lt;/p&gt;
+&lt;p&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="BigData" scheme="http://yanhuanjin.github.io/categories/BigData/"/>
+    
+    
+    <category term="Hadoop" scheme="http://yanhuanjin.github.io/tags/Hadoop/"/>
+    
+  </entry>
   
   <entry>
     <title>用Python行云流水地操作Excel和数据库</title>

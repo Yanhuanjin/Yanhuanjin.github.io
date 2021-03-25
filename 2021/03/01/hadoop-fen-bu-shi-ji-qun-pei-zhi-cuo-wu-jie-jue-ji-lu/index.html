@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hadoop项目配置, King">
+    <meta name="keywords" content="Hadoop分布式集群配置错误解决记录, King">
     <meta name="description" content="Insight into the future.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hadoop项目配置 | King</title>
+    <title>Hadoop分布式集群配置错误解决记录 | King</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -325,12 +325,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hadoop项目配置</h1>
+                    <h1 class="description center-align post-title">Hadoop分布式集群配置错误解决记录</h1>
                 </div>
             </div>
         </div>
@@ -472,28 +472,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-14
+                    2021-03-01
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-14
+                    2021-03-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    834
+                    716
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    3 分
                 </div>
                 
 
@@ -508,107 +508,48 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-查看Java安装路径"><a href="#1-查看Java安装路径" class="headerlink" title="1.查看Java安装路径"></a>1.查看Java安装路径</h2><pre><code>update-alternatives --display java
-&gt;&gt; /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java</code></pre>
-<p>hadoop安装在以下位置: /usr/local/hadoop</p>
-<h2 id="2-Hadoop-环境变量配置"><a href="#2-Hadoop-环境变量配置" class="headerlink" title="2.Hadoop 环境变量配置"></a>2.Hadoop 环境变量配置</h2><p>.bashrc配置 【~/.bashrc: 当前用户 /etc/profile: 所有用户 终端：仅当前终端窗口】</p>
-<h3 id="HOME文件夹配置"><a href="#HOME文件夹配置" class="headerlink" title="HOME文件夹配置"></a>HOME文件夹配置</h3><pre><code>export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-export HADOOP_HOME=/usr/local/hadoop</code></pre>
-<h3 id="具体环境配置"><a href="#具体环境配置" class="headerlink" title="具体环境配置"></a>具体环境配置</h3><pre><code>export PATH=$PATH:$HADOOP_HOME/bin  # 各项运行文件，包括Hadoop、HDFS、YARN等。
-export PATH=$PATH:$HADOOP_HOME/sbin  # shell运行文件
-export HADOOP_MAPRED_HOME=$HADOOP_HOME  # 单机版，所以MapReduce、HDFS、YARN等都在一个文件夹？
-export HADOOP_COMMON_HOME=$HADOOP_HOME
-export HADOOP_HDFS_HOME=$HADOOP_HOME
-export YARN_HOME=$HADOOP_HOME
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/naitve  # 一些函数库配置
-export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"  # 指定非Java类包的位置
-export JAVA_LIBRARY_PATH=$HADOOP_HOME/lib/native:$JAVA_LIBRARY_PATH  # 动态链接库的位置</code></pre>
-<h2 id="3-Hadoop配置设置文件"><a href="#3-Hadoop配置设置文件" class="headerlink" title="3.Hadoop配置设置文件"></a>3.Hadoop配置设置文件</h2><h3 id="Hadoop-env-sh"><a href="#Hadoop-env-sh" class="headerlink" title="Hadoop-env.sh"></a>Hadoop-env.sh</h3><pre><code>export JAVA_HOME=${JAVA_HOME} &gt;&gt;
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64</code></pre>
-<h3 id="core-site-xml"><a href="#core-site-xml" class="headerlink" title="core-site.xml"></a>core-site.xml</h3><h4 id="设置HDFS的默认名称"><a href="#设置HDFS的默认名称" class="headerlink" title="设置HDFS的默认名称"></a>设置HDFS的默认名称</h4><pre><code>&lt;configuration&gt;
-&lt;property&gt;
-    &lt;name&gt;fs.default.name&lt;/name&gt;
-    &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;
-&lt;/property&gt;
-&lt;/configuration&gt;</code></pre>
-<h4 id="yarn-site-xml-MapReduce2-YARN-相关配置"><a href="#yarn-site-xml-MapReduce2-YARN-相关配置" class="headerlink" title="yarn-site.xml MapReduce2 (YARN)相关配置"></a>yarn-site.xml MapReduce2 (YARN)相关配置</h4><pre><code>&lt;property&gt;
-    &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
-    &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
-&lt;/property&gt;
-&lt;property&gt;
-    &lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;
-    &lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;
-&lt;/property&gt;</code></pre>
-<h3 id="mapred-site-xml"><a href="#mapred-site-xml" class="headerlink" title="mapred-site.xml"></a>mapred-site.xml</h3><pre><code>&lt;configuration&gt;
-&lt;property&gt;
-    &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
-    &lt;value&gt;yarn&lt;/value&gt;
-&lt;/property&gt;
-&lt;/configuration&gt;</code></pre>
-<h3 id="hdfs-site-xml"><a href="#hdfs-site-xml" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><pre><code>&lt;property&gt;
-    &lt;name&gt;dfs.replication&lt;/name&gt;  # blocks副本备份数量
-    &lt;value&gt;3&lt;/value&gt;
-&lt;/property&gt;
-&lt;property&gt;
-    &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;  # NameNode数据存储目录
-    &lt;value&gt;file:/usr/local/hadoop/hadoop_data/hdfs/namenode&lt;/value&gt;
-&lt;/property&gt;
-&lt;property&gt;
-    &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;  # DataNode数据存储
-    &lt;value&gt;file:/usr/local/hadoop/hadoop_data/hdfs/datanode&lt;/value&gt;
-&lt;/property&gt;</code></pre>
-<h2 id="4-创建并格式化HDFS目录"><a href="#4-创建并格式化HDFS目录" class="headerlink" title="4.创建并格式化HDFS目录"></a>4.创建并格式化HDFS目录</h2><h3 id="创建NameNode数据存储目录"><a href="#创建NameNode数据存储目录" class="headerlink" title="创建NameNode数据存储目录"></a>创建NameNode数据存储目录</h3><h3 id="创建DataNode数据存储目录"><a href="#创建DataNode数据存储目录" class="headerlink" title="创建DataNode数据存储目录"></a>创建DataNode数据存储目录</h3><h3 id="将Hadoop目录所有者更改为hduser"><a href="#将Hadoop目录所有者更改为hduser" class="headerlink" title="将Hadoop目录所有者更改为hduser"></a>将Hadoop目录所有者更改为hduser</h3><pre><code>chown hduser:hduser -R /usr/local/hadoop</code></pre>
-<h2 id="5-data1服务器-ip设置"><a href="#5-data1服务器-ip设置" class="headerlink" title="5.data1服务器 ip设置"></a>5.data1服务器 ip设置</h2><pre><code>vi /etc/network/interfaces
-
-# NAT interface
-auto eth0
-iface eth0 inet dhcp
-
-# host only interface
-iface eth1 inet static
-address    192.168.56.101
-netmask    255.255.255.0
-network    192.168.56.0    
-broadcast    192.168.56.255</code></pre>
-<h3 id="更改hostname"><a href="#更改hostname" class="headerlink" title="更改hostname"></a>更改hostname</h3><pre><code>/etc/hostname
-data1</code></pre>
-<h3 id="编辑host文件"><a href="#编辑host文件" class="headerlink" title="编辑host文件"></a>编辑host文件</h3><pre><code>/etc/hosts
-
-192.168.56.100    master
-192.168.56.101    data1
-192.168.56.102    data2
-192.168.56.103    data3</code></pre>
-<h3 id="core-site-xml-1"><a href="#core-site-xml-1" class="headerlink" title="core-site.xml"></a>core-site.xml</h3><p>localhost改为master</p>
-<h3 id="yarn-site-xml"><a href="#yarn-site-xml" class="headerlink" title="yarn-site.xml"></a>yarn-site.xml</h3><pre><code>&lt;property&gt;
-    &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;
-    &lt;value&gt;master:8025&lt;/value&gt;
-&lt;/property&gt;
-&lt;property&gt;
-    &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;
-    &lt;value&gt;master:8030&lt;/value&gt;
-&lt;/property&gt;
-&lt;property&gt;
-    &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;
-    &lt;value&gt;master:8050&lt;/value&gt;
-&lt;/property&gt;</code></pre>
-<h3 id="mapred-site-xml-1"><a href="#mapred-site-xml-1" class="headerlink" title="mapred-site.xml"></a>mapred-site.xml</h3><pre><code>&lt;property&gt;
-    &lt;name&gt;mapred.job.tracker&lt;/name&gt;
-    &lt;value&gt;master:54311&lt;/value&gt;
-&lt;/property&gt;</code></pre>
-<h3 id="hdfs-site-xml-1"><a href="#hdfs-site-xml-1" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><p>删除namenode配置，保留DataNode配置</p>
-<pre><code>&lt;property&gt;
-    &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;  # DataNode数据存储
-    &lt;value&gt;file:/usr/local/hadoop/hadoop_data/hdfs/datanode&lt;/value&gt;
-&lt;/property&gt;</code></pre>
-<p>ifconfig 确认两个网卡,内网ip是192.168.56.101。对外网络连接正常</p>
-<p>复制data1服务器到data2、data3,更改以上必要设置</p>
-<h2 id="6-master服务器-ip设置、hostname设置"><a href="#6-master服务器-ip设置、hostname设置" class="headerlink" title="6.master服务器 ip设置、hostname设置"></a>6.master服务器 ip设置、hostname设置</h2><h3 id="hdfs-site-xml-2"><a href="#hdfs-site-xml-2" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><p>删除DataNode配置，保留NameNode配置</p>
-<pre><code>&lt;property&gt;
-    &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;  # NameNode数据存储目录
-    &lt;value&gt;file:/usr/local/hadoop/hadoop_data/hdfs/namenode&lt;/value&gt;
-&lt;/property&gt;</code></pre>
-<h3 id="编辑master文件"><a href="#编辑master文件" class="headerlink" title="编辑master文件"></a>编辑master文件</h3><pre><code>/usr/local/hadoop/etc/hadoop/masters</code></pre>
-<h3 id="编辑slaves文件"><a href="#编辑slaves文件" class="headerlink" title="编辑slaves文件"></a>编辑slaves文件</h3><pre><code>/usr/local/hadoop/etc/hadoop/slaves</code></pre>
+                <p>##1.背景<br>继上次配置好hadoop真分布式之后，这次启动后，调用hdfs命令总是报错，拒绝9000远程访问，但是端口还是好的（未占用）。搜了一圈网上的解决方案，一个个试过去都不行，最后导致namenode都起不来了，心态差点崩了，就差重新装一遍了。</p>
+<p><img src="https://img2020.cnblogs.com/blog/1732977/202101/1732977-20210121144036263-2132110927.jpg"></p>
+<p>##2.排查问题<br>后来静下心来慢慢排查，去看logs文件夹下master的日志文件，才知道问题出在哪，namenode没有格式化</p>
+<pre><code>2021-01-21 14:09:36,639 FATAL org.apache.hadoop.hdfs.server.namenode.NameNode: Failed to start namenode.
+java.io.IOException: NameNode is not formatted.</code></pre>
+<p>然后尝试格式化namenode，</p>
+<p><code>hdfs namenode -format</code></p>
+<p>报错，报错日志如下图，<br><img src="https://img2020.cnblogs.com/blog/1732977/202101/1732977-20210121141441519-125675234.png"></p>
+<p>##3.解决方式<br>仔细看了下各个配置文件，发现core-site.xml在配置tmp路径时，多加了个file:，会不会是因为这个？（当时第一感觉就觉得这里不对，但是看网上教程好像都成功了？所以就照做了。现在看来，不能太过信任网上的所谓的最全、最详细教程啊！）<br><img src="https://img2020.cnblogs.com/blog/1732977/202101/1732977-20210121141708097-226277289.png"><br>修改完后，再次格式化namenode文件夹，成功。<br><code>hdfs namenode -format</code></p>
+<p>然后再启动服务，</p>
+<p>开启hdfs服务</p>
+<pre><code>hduser@master:/usr/local/hadoop/etc/hadoop$ start-dfs.sh
+Starting namenodes on [master]
+master: starting namenode, logging to /usr/local/hadoop/logs/hadoop-hduser-namenode-master.out
+data2: starting datanode, logging to /usr/local/hadoop/logs/hadoop-hduser-datanode-data2.out
+data3: starting datanode, logging to /usr/local/hadoop/logs/hadoop-hduser-datanode-data3.out
+data1: starting datanode, logging to /usr/local/hadoop/logs/hadoop-hduser-datanode-data1.out
+Starting secondary namenodes [0.0.0.0]
+0.0.0.0: starting secondarynamenode, logging to /usr/local/hadoop/logs/hadoop-hduser-secondarynamenode-master.out
+hduser@master:/usr/local/hadoop/etc/hadoop$ jps
+4375 Jps
+4273 SecondaryNameNode
+4046 NameNode</code></pre>
+<p>开启yarn服务</p>
+<pre><code>hduser@master:/usr/local/hadoop/etc/hadoop$ start-yarn.sh
+starting yarn daemons
+starting resourcemanager, logging to /usr/local/hadoop/logs/yarn-hduser-resourcemanager-master.out
+data2: starting nodemanager, logging to /usr/local/hadoop/logs/yarn-hduser-nodemanager-data2.out
+data1: starting nodemanager, logging to /usr/local/hadoop/logs/yarn-hduser-nodemanager-data1.out
+data3: starting nodemanager, logging to /usr/local/hadoop/logs/yarn-hduser-nodemanager-data3.out
+hduser@master:/usr/local/hadoop/etc/hadoop$ jps
+4507 Jps
+4273 SecondaryNameNode
+4428 ResourceManager
+4046 NameNode</code></pre>
+<p>可以看到，这次服务都成功起来了。创建hdfs目录，并且查看，也成功。</p>
+<pre><code>hduser@master:/usr/local/hadoop/etc/hadoop$ hadoop fs -mkdir /test
+hduser@master:/usr/local/hadoop/etc/hadoop$ hadoop fs -ls /
+Found 1 items
+drwxr-xr-x   - hduser supergroup          0 2021-01-21 14:23 /test</code></pre>
+<p>##4.总结体会<br>###1.总结<br>如果出现9000端口拒绝访问，一般是以下两者之一：<br>1.端口配置（端口冲突等）、防火墙<br>2.tmp文件夹配置（实践证明我的错误应是这种，由于没有指定tmp文件夹，导致每次都要重新格式化namenode，不然找不到tmp/dfs下的name和namesecondary就会导致服务起不来）</p>
+<p>###2.体会<br>还是得独立思考、研究，遇问题多看LOG，一昧找答案并不靠谱（还看到多个一模一样的答案，不知道他们是怎么都解决的）。</p>
 
             </div>
             <hr/>
@@ -634,7 +575,7 @@ data1</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yanhuanjin.github.io/2020/01/14/hadoop-xiang-mu-pei-zhi/">http://yanhuanjin.github.io/2020/01/14/hadoop-xiang-mu-pei-zhi/</a>
+                    <a href="http://yanhuanjin.github.io/2021/03/01/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/">http://yanhuanjin.github.io/2021/03/01/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -887,82 +828,29 @@ data1</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/03/java-zhu-jie-requestmapping/">
+                <a href="/2021/03/01/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="SpringBoot注解说明@RequestMapping">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Hadoop分布式集群配置错误解决记录">
                         
-                        <span class="card-title">SpringBoot注解说明@RequestMapping</span>
+                        <span class="card-title">Hadoop分布式集群配置错误解决记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-@RequestMapping注解可以将HTTP请求映射给控制器controller来处理，包括返回视图页面的controller和Rest服务的controller。是一个非常常用的注解。
-
-在 Spring MVC 应用程序中，Req
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-03
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/JAVA/" class="post-category">
-                                    JAVA
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Spring-Boot/">
-                        <span class="chip bg-color">Spring Boot</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
-            </div>
-            <div class="card">
-                <a href="/2020/01/14/hadoop-xiang-mu-pei-zhi/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Hadoop项目配置">
-                        
-                        <span class="card-title">Hadoop项目配置</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            1.查看Java安装路径update-alternatives --display java
-&gt;&gt; /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
-hadoop安装在以下位置: /u
+                            ##1.背景继上次配置好hadoop真分布式之后，这次启动后，调用hdfs命令总是报错，拒绝9000远程访问，但是端口还是好的（未占用）。搜了一圈网上的解决方案，一个个试过去都不行，最后导致namenode都起不来了，心态差点崩了，就差重新
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-01
                             </span>
                         <span class="publish-author">
                             
@@ -982,6 +870,56 @@ hadoop安装在以下位置: /u
                     
                     <a href="/tags/Hadoop/">
                         <span class="chip bg-color">Hadoop</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="用Python行云流水地操作Excel和数据库">
+                        
+                        <span class="card-title">用Python行云流水地操作Excel和数据库</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            前言本想就着这个机会学习下Java读取Excel的，奈何搜了一圈，发现还是Pandas最为简单明了。打算先就Python写一版，后面在学习时可能还会发一篇《用Java优雅地操作Excel和数据库》。
+准备工作软件包关于软件安装和环境配置，网
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-10
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>

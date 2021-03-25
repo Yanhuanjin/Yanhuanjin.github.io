@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>Hadoop分布式集群配置错误解决记录</title>
+      <link href="2021/03/01/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/"/>
+      <url>2021/03/01/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/</url>
+      
+        <content type="html"><![CDATA[<p>##1.背景<br>继上次配置好hadoop真分布式之后，这次启动后，调用hdfs命令总是报错，拒绝9000远程访问，但是端口还是好的（未占用）。搜了一圈网上的解决方案，一个个试过去都不行，最后导致namenode都起不来了，心态差点崩了，就差重新装一遍了。</p><p><img src="https://img2020.cnblogs.com/blog/1732977/202101/1732977-20210121144036263-2132110927.jpg"></p><p>##2.排查问题<br>后来静下心来慢慢排查，去看logs文件夹下master的日志文件，才知道问题出在哪，namenode没有格式化</p><pre><code>2021-01-21 14:09:36,639 FATAL org.apache.hadoop.hdfs.server.namenode.NameNode: Failed to start namenode.java.io.IOException: NameNode is not formatted.</code></pre><p>然后尝试格式化namenode，</p><p><code>hdfs namenode -format</code></p><p>报错，报错日志如下图，<br><img src="https://img2020.cnblogs.com/blog/1732977/202101/1732977-20210121141441519-125675234.png"></p><p>##3.解决方式<br>仔细看了下各个配置文件，发现core-site.xml在配置tmp路径时，多加了个file:，会不会是因为这个？（当时第一感觉就觉得这里不对，但是看网上教程好像都成功了？所以就照做了。现在看来，不能太过信任网上的所谓的最全、最详细教程啊！）<br><img src="https://img2020.cnblogs.com/blog/1732977/202101/1732977-20210121141708097-226277289.png"><br>修改完后，再次格式化namenode文件夹，成功。<br><code>hdfs namenode -format</code></p><p>然后再启动服务，</p><p>开启hdfs服务</p><pre><code>hduser@master:/usr/local/hadoop/etc/hadoop$ start-dfs.shStarting namenodes on [master]master: starting namenode, logging to /usr/local/hadoop/logs/hadoop-hduser-namenode-master.outdata2: starting datanode, logging to /usr/local/hadoop/logs/hadoop-hduser-datanode-data2.outdata3: starting datanode, logging to /usr/local/hadoop/logs/hadoop-hduser-datanode-data3.outdata1: starting datanode, logging to /usr/local/hadoop/logs/hadoop-hduser-datanode-data1.outStarting secondary namenodes [0.0.0.0]0.0.0.0: starting secondarynamenode, logging to /usr/local/hadoop/logs/hadoop-hduser-secondarynamenode-master.outhduser@master:/usr/local/hadoop/etc/hadoop$ jps4375 Jps4273 SecondaryNameNode4046 NameNode</code></pre><p>开启yarn服务</p><pre><code>hduser@master:/usr/local/hadoop/etc/hadoop$ start-yarn.shstarting yarn daemonsstarting resourcemanager, logging to /usr/local/hadoop/logs/yarn-hduser-resourcemanager-master.outdata2: starting nodemanager, logging to /usr/local/hadoop/logs/yarn-hduser-nodemanager-data2.outdata1: starting nodemanager, logging to /usr/local/hadoop/logs/yarn-hduser-nodemanager-data1.outdata3: starting nodemanager, logging to /usr/local/hadoop/logs/yarn-hduser-nodemanager-data3.outhduser@master:/usr/local/hadoop/etc/hadoop$ jps4507 Jps4273 SecondaryNameNode4428 ResourceManager4046 NameNode</code></pre><p>可以看到，这次服务都成功起来了。创建hdfs目录，并且查看，也成功。</p><pre><code>hduser@master:/usr/local/hadoop/etc/hadoop$ hadoop fs -mkdir /testhduser@master:/usr/local/hadoop/etc/hadoop$ hadoop fs -ls /Found 1 itemsdrwxr-xr-x   - hduser supergroup          0 2021-01-21 14:23 /test</code></pre><p>##4.总结体会<br>###1.总结<br>如果出现9000端口拒绝访问，一般是以下两者之一：<br>1.端口配置（端口冲突等）、防火墙<br>2.tmp文件夹配置（实践证明我的错误应是这种，由于没有指定tmp文件夹，导致每次都要重新格式化namenode，不然找不到tmp/dfs下的name和namesecondary就会导致服务起不来）</p><p>###2.体会<br>还是得独立思考、研究，遇问题多看LOG，一昧找答案并不靠谱（还看到多个一模一样的答案，不知道他们是怎么都解决的）。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> BigData </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>用Python行云流水地操作Excel和数据库</title>
       <link href="2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/"/>
       <url>2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/</url>
