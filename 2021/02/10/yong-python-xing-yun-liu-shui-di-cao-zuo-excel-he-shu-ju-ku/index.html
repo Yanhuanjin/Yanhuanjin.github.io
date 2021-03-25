@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hadoop项目配置, King">
+    <meta name="keywords" content="用Python行云流水地操作Excel和数据库, King">
     <meta name="description" content="Insight into the future.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hadoop项目配置 | King</title>
+    <title>用Python行云流水地操作Excel和数据库 | King</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -325,12 +325,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hadoop项目配置</h1>
+                    <h1 class="description center-align post-title">用Python行云流水地操作Excel和数据库</h1>
                 </div>
             </div>
         </div>
@@ -447,8 +447,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Hadoop/">
-                                <span class="chip bg-color">Hadoop</span>
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
                             </a>
                         
                     </div>
@@ -459,8 +459,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/BigData/" class="post-category">
-                                BigData
+                            <a href="/categories/Python/" class="post-category">
+                                Python
                             </a>
                         
                     </div>
@@ -472,28 +472,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-01-14
+                    2021-02-10
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2021-01-14
+                    2021-03-25
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    834
+                    1k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    3 分
                 </div>
                 
 
@@ -508,107 +508,59 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="1-查看Java安装路径"><a href="#1-查看Java安装路径" class="headerlink" title="1.查看Java安装路径"></a>1.查看Java安装路径</h2><pre><code>update-alternatives --display java
-&gt;&gt; /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java</code></pre>
-<p>hadoop安装在以下位置: /usr/local/hadoop</p>
-<h2 id="2-Hadoop-环境变量配置"><a href="#2-Hadoop-环境变量配置" class="headerlink" title="2.Hadoop 环境变量配置"></a>2.Hadoop 环境变量配置</h2><p>.bashrc配置 【~/.bashrc: 当前用户 /etc/profile: 所有用户 终端：仅当前终端窗口】</p>
-<h3 id="HOME文件夹配置"><a href="#HOME文件夹配置" class="headerlink" title="HOME文件夹配置"></a>HOME文件夹配置</h3><pre><code>export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64
-export HADOOP_HOME=/usr/local/hadoop</code></pre>
-<h3 id="具体环境配置"><a href="#具体环境配置" class="headerlink" title="具体环境配置"></a>具体环境配置</h3><pre><code>export PATH=$PATH:$HADOOP_HOME/bin  # 各项运行文件，包括Hadoop、HDFS、YARN等。
-export PATH=$PATH:$HADOOP_HOME/sbin  # shell运行文件
-export HADOOP_MAPRED_HOME=$HADOOP_HOME  # 单机版，所以MapReduce、HDFS、YARN等都在一个文件夹？
-export HADOOP_COMMON_HOME=$HADOOP_HOME
-export HADOOP_HDFS_HOME=$HADOOP_HOME
-export YARN_HOME=$HADOOP_HOME
-export HADOOP_COMMON_LIB_NATIVE_DIR=$HADOOP_HOME/lib/naitve  # 一些函数库配置
-export HADOOP_OPTS="-Djava.library.path=$HADOOP_HOME/lib"  # 指定非Java类包的位置
-export JAVA_LIBRARY_PATH=$HADOOP_HOME/lib/native:$JAVA_LIBRARY_PATH  # 动态链接库的位置</code></pre>
-<h2 id="3-Hadoop配置设置文件"><a href="#3-Hadoop配置设置文件" class="headerlink" title="3.Hadoop配置设置文件"></a>3.Hadoop配置设置文件</h2><h3 id="Hadoop-env-sh"><a href="#Hadoop-env-sh" class="headerlink" title="Hadoop-env.sh"></a>Hadoop-env.sh</h3><pre><code>export JAVA_HOME=${JAVA_HOME} &gt;&gt;
-export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64</code></pre>
-<h3 id="core-site-xml"><a href="#core-site-xml" class="headerlink" title="core-site.xml"></a>core-site.xml</h3><h4 id="设置HDFS的默认名称"><a href="#设置HDFS的默认名称" class="headerlink" title="设置HDFS的默认名称"></a>设置HDFS的默认名称</h4><pre><code>&lt;configuration&gt;
-&lt;property&gt;
-    &lt;name&gt;fs.default.name&lt;/name&gt;
-    &lt;value&gt;hdfs://localhost:9000&lt;/value&gt;
-&lt;/property&gt;
-&lt;/configuration&gt;</code></pre>
-<h4 id="yarn-site-xml-MapReduce2-YARN-相关配置"><a href="#yarn-site-xml-MapReduce2-YARN-相关配置" class="headerlink" title="yarn-site.xml MapReduce2 (YARN)相关配置"></a>yarn-site.xml MapReduce2 (YARN)相关配置</h4><pre><code>&lt;property&gt;
-    &lt;name&gt;yarn.nodemanager.aux-services&lt;/name&gt;
-    &lt;value&gt;mapreduce_shuffle&lt;/value&gt;
-&lt;/property&gt;
-&lt;property&gt;
-    &lt;name&gt;yarn.nodemanager.aux-services.mapreduce.shuffle.class&lt;/name&gt;
-    &lt;value&gt;org.apache.hadoop.mapred.ShuffleHandler&lt;/value&gt;
-&lt;/property&gt;</code></pre>
-<h3 id="mapred-site-xml"><a href="#mapred-site-xml" class="headerlink" title="mapred-site.xml"></a>mapred-site.xml</h3><pre><code>&lt;configuration&gt;
-&lt;property&gt;
-    &lt;name&gt;mapreduce.framework.name&lt;/name&gt;
-    &lt;value&gt;yarn&lt;/value&gt;
-&lt;/property&gt;
-&lt;/configuration&gt;</code></pre>
-<h3 id="hdfs-site-xml"><a href="#hdfs-site-xml" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><pre><code>&lt;property&gt;
-    &lt;name&gt;dfs.replication&lt;/name&gt;  # blocks副本备份数量
-    &lt;value&gt;3&lt;/value&gt;
-&lt;/property&gt;
-&lt;property&gt;
-    &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;  # NameNode数据存储目录
-    &lt;value&gt;file:/usr/local/hadoop/hadoop_data/hdfs/namenode&lt;/value&gt;
-&lt;/property&gt;
-&lt;property&gt;
-    &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;  # DataNode数据存储
-    &lt;value&gt;file:/usr/local/hadoop/hadoop_data/hdfs/datanode&lt;/value&gt;
-&lt;/property&gt;</code></pre>
-<h2 id="4-创建并格式化HDFS目录"><a href="#4-创建并格式化HDFS目录" class="headerlink" title="4.创建并格式化HDFS目录"></a>4.创建并格式化HDFS目录</h2><h3 id="创建NameNode数据存储目录"><a href="#创建NameNode数据存储目录" class="headerlink" title="创建NameNode数据存储目录"></a>创建NameNode数据存储目录</h3><h3 id="创建DataNode数据存储目录"><a href="#创建DataNode数据存储目录" class="headerlink" title="创建DataNode数据存储目录"></a>创建DataNode数据存储目录</h3><h3 id="将Hadoop目录所有者更改为hduser"><a href="#将Hadoop目录所有者更改为hduser" class="headerlink" title="将Hadoop目录所有者更改为hduser"></a>将Hadoop目录所有者更改为hduser</h3><pre><code>chown hduser:hduser -R /usr/local/hadoop</code></pre>
-<h2 id="5-data1服务器-ip设置"><a href="#5-data1服务器-ip设置" class="headerlink" title="5.data1服务器 ip设置"></a>5.data1服务器 ip设置</h2><pre><code>vi /etc/network/interfaces
-
-# NAT interface
-auto eth0
-iface eth0 inet dhcp
-
-# host only interface
-iface eth1 inet static
-address    192.168.56.101
-netmask    255.255.255.0
-network    192.168.56.0    
-broadcast    192.168.56.255</code></pre>
-<h3 id="更改hostname"><a href="#更改hostname" class="headerlink" title="更改hostname"></a>更改hostname</h3><pre><code>/etc/hostname
-data1</code></pre>
-<h3 id="编辑host文件"><a href="#编辑host文件" class="headerlink" title="编辑host文件"></a>编辑host文件</h3><pre><code>/etc/hosts
-
-192.168.56.100    master
-192.168.56.101    data1
-192.168.56.102    data2
-192.168.56.103    data3</code></pre>
-<h3 id="core-site-xml-1"><a href="#core-site-xml-1" class="headerlink" title="core-site.xml"></a>core-site.xml</h3><p>localhost改为master</p>
-<h3 id="yarn-site-xml"><a href="#yarn-site-xml" class="headerlink" title="yarn-site.xml"></a>yarn-site.xml</h3><pre><code>&lt;property&gt;
-    &lt;name&gt;yarn.resourcemanager.resource-tracker.address&lt;/name&gt;
-    &lt;value&gt;master:8025&lt;/value&gt;
-&lt;/property&gt;
-&lt;property&gt;
-    &lt;name&gt;yarn.resourcemanager.scheduler.address&lt;/name&gt;
-    &lt;value&gt;master:8030&lt;/value&gt;
-&lt;/property&gt;
-&lt;property&gt;
-    &lt;name&gt;yarn.resourcemanager.address&lt;/name&gt;
-    &lt;value&gt;master:8050&lt;/value&gt;
-&lt;/property&gt;</code></pre>
-<h3 id="mapred-site-xml-1"><a href="#mapred-site-xml-1" class="headerlink" title="mapred-site.xml"></a>mapred-site.xml</h3><pre><code>&lt;property&gt;
-    &lt;name&gt;mapred.job.tracker&lt;/name&gt;
-    &lt;value&gt;master:54311&lt;/value&gt;
-&lt;/property&gt;</code></pre>
-<h3 id="hdfs-site-xml-1"><a href="#hdfs-site-xml-1" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><p>删除namenode配置，保留DataNode配置</p>
-<pre><code>&lt;property&gt;
-    &lt;name&gt;dfs.datanode.data.dir&lt;/name&gt;  # DataNode数据存储
-    &lt;value&gt;file:/usr/local/hadoop/hadoop_data/hdfs/datanode&lt;/value&gt;
-&lt;/property&gt;</code></pre>
-<p>ifconfig 确认两个网卡,内网ip是192.168.56.101。对外网络连接正常</p>
-<p>复制data1服务器到data2、data3,更改以上必要设置</p>
-<h2 id="6-master服务器-ip设置、hostname设置"><a href="#6-master服务器-ip设置、hostname设置" class="headerlink" title="6.master服务器 ip设置、hostname设置"></a>6.master服务器 ip设置、hostname设置</h2><h3 id="hdfs-site-xml-2"><a href="#hdfs-site-xml-2" class="headerlink" title="hdfs-site.xml"></a>hdfs-site.xml</h3><p>删除DataNode配置，保留NameNode配置</p>
-<pre><code>&lt;property&gt;
-    &lt;name&gt;dfs.namenode.name.dir&lt;/name&gt;  # NameNode数据存储目录
-    &lt;value&gt;file:/usr/local/hadoop/hadoop_data/hdfs/namenode&lt;/value&gt;
-&lt;/property&gt;</code></pre>
-<h3 id="编辑master文件"><a href="#编辑master文件" class="headerlink" title="编辑master文件"></a>编辑master文件</h3><pre><code>/usr/local/hadoop/etc/hadoop/masters</code></pre>
-<h3 id="编辑slaves文件"><a href="#编辑slaves文件" class="headerlink" title="编辑slaves文件"></a>编辑slaves文件</h3><pre><code>/usr/local/hadoop/etc/hadoop/slaves</code></pre>
+                <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本想就着这个机会学习下Java读取Excel的，奈何搜了一圈，发现还是Pandas最为简单明了。打算先就Python写一版，后面在学习时可能还会发一篇《用Java优雅地操作Excel和数据库》。</p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="软件包"><a href="#软件包" class="headerlink" title="软件包"></a>软件包</h3><p>关于软件安装和环境配置，网上有成堆的教程，此处不再赘述。<br>大体上需要用到的软件就以下几款：</p>
+<ol>
+<li>Anaconda（建议用Anaconda里的jupyter notebook，如果喜欢PyCharm也可以，当然也可以只用Python）</li>
+<li>Python（Anaconda和PyCharm都内置，如果只有Python也可）</li>
+<li>MySQL（不多说了，免费）</li>
+</ol>
+<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>数据只要随便找一个Excel文件，自己建一个Excel文档（不论是.xls还是.xlsx后缀都可以），并随便写一些内容，保存为 成绩单.xlsx。<br><img src="https://img2020.cnblogs.com/blog/1732977/202102/1732977-20210223145746228-817664678.png"></p>
+<h2 id="Pandas读取Excel文件"><a href="#Pandas读取Excel文件" class="headerlink" title="Pandas读取Excel文件"></a>Pandas读取Excel文件</h2><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pandas <span class="token keyword">as</span> pd  <span class="token comment" spellcheck="true"># 如果没有安装pandas报错，直接在jupyter里面运行后述语句 !pip install pandas</span>
+df <span class="token operator">=</span> pd<span class="token punctuation">.</span>read_excel<span class="token punctuation">(</span>r<span class="token string">"C:\Users\Administrator\Desktop\成绩单.xlsx"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 读取test.xlsx的sheet1，并以第一行作为Dataframe的标题头</span>
+df<span class="token punctuation">.</span>head<span class="token punctuation">(</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 查看表格内容概况</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://img2020.cnblogs.com/blog/1732977/202102/1732977-20210223150112070-1829265715.png"></p>
+<h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p>打开MySQL，创建数据库students</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token comment" spellcheck="true"># 创建数据库</span>
+create database students<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true"># 使用数据库</span>
+use database<span class="token punctuation">;</span>
+<span class="token comment" spellcheck="true"># 查看数据表，这个时候是空数据库</span>
+show tables<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="创建数据表"><a href="#创建数据表" class="headerlink" title="创建数据表"></a>创建数据表</h2><pre class="line-numbers language-python"><code class="language-python">create table `students` <span class="token punctuation">(</span>`id` int <span class="token operator">not</span> null auto_increment primary key<span class="token punctuation">,</span> `student_id` varchar<span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> comment <span class="token string">'学号'</span><span class="token punctuation">,</span> `name` varchar<span class="token punctuation">(</span><span class="token number">255</span><span class="token punctuation">)</span> comment <span class="token string">'姓名'</span><span class="token punctuation">,</span> `results` int comment <span class="token string">'成绩'</span><span class="token punctuation">)</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>注：创建数据表有两种方式，一种是在MySQL中先创建好数据表，并定义好数据字段的名称、属性，然后再用Pandas进行导入，若属性不符则导入失败；另一种是直接用Pandas在导出的同时创建数据表，这样导出的数据表字段属性都为TEXT，然后根据需要更改数据字段属性。</p>
+<h2 id="将记录导入数据库"><a href="#将记录导入数据库" class="headerlink" title="将记录导入数据库"></a>将记录导入数据库</h2><p>调用Pandas.io.sql.to_sql()方法，其中if_exists控制重复记录是替换还是追加。</p>
+<pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">from</span> sqlalchemy <span class="token keyword">import</span> create_engine
+<span class="token comment" spellcheck="true"># 建立连接，username替换为用户名，passwd替换为密码，students替换为数据库名</span>
+conn <span class="token operator">=</span> create_engine<span class="token punctuation">(</span><span class="token string">'mysql+pymysql://username:passwd@localhost:3306/students'</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">'utf8'</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 以df中的header为标题，写入数据库，test替换为数据表名</span>
+pd<span class="token punctuation">.</span>io<span class="token punctuation">.</span>sql<span class="token punctuation">.</span>to_sql<span class="token punctuation">(</span>df<span class="token punctuation">,</span> <span class="token string">"students"</span><span class="token punctuation">,</span> conn<span class="token punctuation">,</span> if_exists<span class="token operator">=</span><span class="token string">'append'</span><span class="token punctuation">,</span> index<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>一般这时候会报错，因为Pandas里面的字段名称和数据库里的字段名称不一致<br><img src="https://img2020.cnblogs.com/blog/1732977/202102/1732977-20210223151434406-1886367206.png"><br>修改df里面的标题(几种重命名的方式汇总 <a target="_blank" rel="noopener" href="https://blog.csdn.net/littleRpl/article/details/100117428">https://blog.csdn.net/littleRpl/article/details/100117428</a>)</p>
+<pre class="line-numbers language-python"><code class="language-python">df<span class="token punctuation">.</span>rename<span class="token punctuation">(</span>columns<span class="token operator">=</span><span class="token punctuation">{</span><span class="token string">'学号'</span><span class="token punctuation">:</span><span class="token string">'student_id'</span><span class="token punctuation">,</span>
+                  <span class="token string">'姓名'</span><span class="token punctuation">:</span><span class="token string">'name'</span><span class="token punctuation">,</span>
+                  <span class="token string">'成绩'</span><span class="token punctuation">:</span><span class="token string">'results'</span><span class="token punctuation">}</span><span class="token punctuation">,</span>inplace<span class="token operator">=</span><span class="token boolean">True</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://img2020.cnblogs.com/blog/1732977/202102/1732977-20210223152118608-739948014.png"><br>再次尝试写入，成功。我们直接查询student数据表</p>
+<p><img src="https://img2020.cnblogs.com/blog/1732977/202102/1732977-20210223152237074-211751201.png"></p>
+<h2 id="使用PyMySQL连接数据库进行增删改查"><a href="#使用PyMySQL连接数据库进行增删改查" class="headerlink" title="使用PyMySQL连接数据库进行增删改查"></a>使用PyMySQL连接数据库进行增删改查</h2><h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><pre class="line-numbers language-python"><code class="language-python"><span class="token keyword">import</span> pymysql
+db <span class="token operator">=</span> pymysql<span class="token punctuation">.</span>connect<span class="token punctuation">(</span>host<span class="token operator">=</span><span class="token string">"127.0.0.1"</span><span class="token punctuation">,</span> user<span class="token operator">=</span><span class="token string">"root"</span><span class="token punctuation">,</span> database<span class="token operator">=</span><span class="token string">"students"</span><span class="token punctuation">,</span> passwd<span class="token operator">=</span><span class="token string">"root"</span><span class="token punctuation">)</span>  <span class="token comment" spellcheck="true"># 主机名，用户名，数据库名称，密码</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h3 id="查询操作"><a href="#查询操作" class="headerlink" title="查询操作"></a>查询操作</h3><pre class="line-numbers language-python"><code class="language-python">cursor <span class="token operator">=</span> db<span class="token punctuation">.</span>cursor<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 编写查询语句</span>
+sql <span class="token operator">=</span> <span class="token string">"SELECT * FROM test;"</span>
+<span class="token comment" spellcheck="true"># 执行查询语句</span>
+cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>sql<span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true"># 获取查询结果</span>
+result <span class="token operator">=</span> cursor<span class="token punctuation">.</span>fetchall<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>可以看到返回的是一个二维元组<br><img src="https://img2020.cnblogs.com/blog/1732977/202102/1732977-20210223152514719-749272091.png"></p>
+<h3 id="增删改操作"><a href="#增删改操作" class="headerlink" title="增删改操作"></a>增删改操作</h3><h4 id="新增记录"><a href="#新增记录" class="headerlink" title="新增记录"></a>新增记录</h4><pre class="line-numbers language-python"><code class="language-python">insert_sql <span class="token operator">=</span> <span class="token string">"INSERT INTO students (student_id, name, results) values ('Y031', 'Jack', 99);"</span>
+cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>insert_sql<span class="token punctuation">)</span>
+db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://img2020.cnblogs.com/blog/1732977/202102/1732977-20210223152708014-215538333.png"></p>
+<h4 id="更新记录"><a href="#更新记录" class="headerlink" title="更新记录"></a>更新记录</h4><pre class="line-numbers language-python"><code class="language-python">update_sql <span class="token operator">=</span> <span class="token string">"update students set student_id='Y006' where student_id='Y031';"</span>
+cursor<span class="token punctuation">.</span>execute<span class="token punctuation">(</span>update_sql<span class="token punctuation">)</span>
+db<span class="token punctuation">.</span>commit<span class="token punctuation">(</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p><img src="https://img2020.cnblogs.com/blog/1732977/202102/1732977-20210223153035965-720667188.png"></p>
+<h4 id="删除记录（不建议，一般使用逻辑删除，即新增一个is-delete字段，然后update这个字段）"><a href="#删除记录（不建议，一般使用逻辑删除，即新增一个is-delete字段，然后update这个字段）" class="headerlink" title="删除记录（不建议，一般使用逻辑删除，即新增一个is_delete字段，然后update这个字段）"></a>删除记录（不建议，一般使用逻辑删除，即新增一个is_delete字段，然后update这个字段）</h4><p>同样的也是套用上面的模板进行操作，读者可以自行尝试。<br>这里稍微讲一下逻辑删除的原理，由于我进行了一次物理删除，导致自增id跳过6到了7.<br>如果是逻辑删除，先修改表结构新增is_delete字段<br><img src="https://img2020.cnblogs.com/blog/1732977/202102/1732977-20210223153447453-716462397.png"><br>更新指定主键的记录的is_delete属性为1，查询的时候加上限定条件。<br><img src="https://img2020.cnblogs.com/blog/1732977/202102/1732977-20210223153555559-1804198156.png"></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>通过Python操作数据库和Excel文件，以Pandas为桥梁，就可以快速进行Excel数据分析，Pandas数据处理，MySQL数据库存储，实现全流程自动化操作。通过数据库连接Web开发组件，Pandas连接机器学习，Excel导出统计报表，实现一站式编程。</p>
 
             </div>
             <hr/>
@@ -634,7 +586,7 @@ data1</code></pre>
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yanhuanjin.github.io/2020/01/14/hadoop-xiang-mu-pei-zhi/">http://yanhuanjin.github.io/2020/01/14/hadoop-xiang-mu-pei-zhi/</a>
+                    <a href="http://yanhuanjin.github.io/2021/02/10/yong-python-xing-yun-liu-shui-di-cao-zuo-excel-he-shu-ju-ku/">http://yanhuanjin.github.io/2021/02/10/yong-python-xing-yun-liu-shui-di-cao-zuo-excel-he-shu-ju-ku/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -672,8 +624,8 @@ data1</code></pre>
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Hadoop/">
-                                    <span class="chip bg-color">Hadoop</span>
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
                                 </a>
                             
                         </div>
@@ -887,49 +839,49 @@ data1</code></pre>
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2020/11/03/java-zhu-jie-requestmapping/">
+                <a href="/2021/02/10/yong-python-xing-yun-liu-shui-di-cao-zuo-excel-he-shu-ju-ku/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="SpringBoot注解说明@RequestMapping">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="用Python行云流水地操作Excel和数据库">
                         
-                        <span class="card-title">SpringBoot注解说明@RequestMapping</span>
+                        <span class="card-title">用Python行云流水地操作Excel和数据库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-@RequestMapping注解可以将HTTP请求映射给控制器controller来处理，包括返回视图页面的controller和Rest服务的controller。是一个非常常用的注解。
-
-在 Spring MVC 应用程序中，Req
+                            前言本想就着这个机会学习下Java读取Excel的，奈何搜了一圈，发现还是Pandas最为简单明了。打算先就Python写一版，后面在学习时可能还会发一篇《用Java优雅地操作Excel和数据库》。
+准备工作软件包关于软件安装和环境配置，网
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-11-03
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JAVA/" class="post-category">
-                                    JAVA
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Spring-Boot/">
-                        <span class="chip bg-color">Spring Boot</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>
@@ -940,48 +892,50 @@ data1</code></pre>
         
         <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/01/14/hadoop-xiang-mu-pei-zhi/">
+                <a href="/2020/11/10/cong-ling-kai-shi-da-jian-django-xiang-mu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Hadoop项目配置">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="从零开始Django搭建Python Web项目">
                         
-                        <span class="card-title">Hadoop项目配置</span>
+                        <span class="card-title">从零开始Django搭建Python Web项目</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            1.查看Java安装路径update-alternatives --display java
-&gt;&gt; /usr/lib/jvm/java-7-openjdk-amd64/jre/bin/java
-hadoop安装在以下位置: /u
+                            从零开始：Django搭建WebCreated: Oct 29, 2020 10:39 AMUpdated: Nov 10, 2020 2:01 PM
+
+在任意存储位置，新建文件夹，例如DjangoTest。
+ 
+
+在资源管理器地址栏键入c
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-01-14
+                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/BigData/" class="post-category">
-                                    BigData
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hadoop/">
-                        <span class="chip bg-color">Hadoop</span>
+                    <a href="/tags/Django/">
+                        <span class="chip bg-color">Django</span>
                     </a>
                     
                 </div>
