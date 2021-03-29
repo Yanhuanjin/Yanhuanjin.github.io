@@ -492,7 +492,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    938
+                    933
                 </div>
                 
 
@@ -516,7 +516,7 @@
             <div id="articleContent">
                 <h2 id="1-1-什么是机器学习？"><a href="#1-1-什么是机器学习？" class="headerlink" title="1.1 什么是机器学习？"></a>1.1 什么是机器学习？</h2><p>机器学习通过算法，对已知数据进行建模，然后用这个模型对新出现的或新得到的数据做出预测或判断。了解机器学习的原理，是解开人工智能这个黑盒子最好的钥匙。<br>机器学习分为监督学习和无监督学习，常见的机器学习算法分类如下</p>
 <p></p><div class="wiz-table-container" style="position: relative; padding: 0px;" contenteditable="false"><div class="wiz-table-body" contenteditable="false"><table style="width: 361px;"><tbody><tr><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff">算法名称</td><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff">监督学习</td><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff">无监督学习</td></tr><tr style="height: 35px;"><td align="center" valign="middle" style="width: 120px;">线性回归</td><td align="center" valign="middle" style="width: 120px;">√</td><td align="center" valign="middle" style="width: 120px;"><br></td></tr><tr><td align="center" valign="middle" style="width: 120px;">逻辑回归</td><td align="center" valign="middle" style="width: 120px;"><span>√</span></td><td align="center" valign="middle" style="width: 120px;"><br></td></tr><tr><td align="center" valign="middle" style="width: 120px;">k-近邻</td><td align="center" valign="middle" style="width: 120px;"><span>√</span></td><td align="center" valign="middle" style="width: 120px;"><br></td></tr><tr><td style="width: 120px;" align="center">支持向量机</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">决策树</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">随机森林</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">提升方法（GBM）</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">神经网络</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">主成分分析（PCA）</td><td style="width: 120px;" align="center"><br></td><td style="width: 120px;" align="center"><span>√</span></td></tr><tr><td style="width: 120px;" align="center">聚类分析</td><td style="width: 120px;" align="center"><br></td><td style="width: 120px;" align="center"><span>√</span></td></tr></tbody></table></div>&lt;/div&gt;</div><p></p>
-<h2 id="1-2-机器学习基本概念汇总"><a href="#1-2-机器学习基本概念汇总" class="headerlink" title="1.2 机器学习基本概念汇总"></a>1.2 机器学习基本概念汇总</h2><h3 id="1-均方误差"><a href="#1-均方误差" class="headerlink" title="1.    均方误差"></a>1.    均方误差</h3><script type="math/tex; mode=display">{\hat f _n} = arg\displaystyle\min _{f}\frac{1}{n}\displaystyle\sum _{i=1}^n(f(X _i)-y _i)^2</script><p>其中，$X_i$为输入，$y_i$为输入对应的标签值，$f(X_i)$为预测值。就是对预测结果和实际结果的误差取平均。</p>
+<h2 id="1-2-机器学习基本概念汇总"><a href="#1-2-机器学习基本概念汇总" class="headerlink" title="1.2 机器学习基本概念汇总"></a>1.2 机器学习基本概念汇总</h2><h3 id="1-均方误差"><a href="#1-均方误差" class="headerlink" title="1.    均方误差"></a>1.    均方误差</h3><script type="math/tex; mode=display">{\hat f_n} = arg\displaystyle\min_{f}\frac{1}{n}\displaystyle\sum_{i=1}^n(f(X_i)-y_i)^2</script><p>其中，<script type="math/tex">X_i</script>为输入，$y_i$为输入对应的标签值，$f(X_i)$为预测值。就是对预测结果和实际结果的误差取平均。</p>
 <h3 id="2-最大似然估计"><a href="#2-最大似然估计" class="headerlink" title="2.    最大似然估计"></a>2.    最大似然估计</h3><script type="math/tex; mode=display">\hat\beta_{MLE} = arg\displaystyle\max_{\beta}logp(\displaystyle\{X_i, Y_i\}_{i=1}^n|\beta)</script><p>即在模型参数为$\beta$的情况下，训练样本$X_i$正好对应为$Y_i$出现的条件概率，取最大条件概率，即为最佳模型参数。</p>
 <h3 id="3-贝叶斯理论"><a href="#3-贝叶斯理论" class="headerlink" title="3.    贝叶斯理论"></a>3.    贝叶斯理论</h3><script type="math/tex; mode=display">P(\theta|X)=\frac{P(X|\theta)P(\theta)}{P(X)}</script><p>$P(\theta)$表示先验分布，$\theta$表示模型参数集，等式左边为后验分布。<br>因此，贝叶斯理论推断可以分为先验、似然、后验三个步骤。</p>
 <h3 id="4-凸优化"><a href="#4-凸优化" class="headerlink" title="4.    凸优化"></a>4.    凸优化</h3><script type="math/tex; mode=display">f(\alpha{x}+\beta{y})\leq{\alpha}f(x)+{\beta}f(y)</script><p>其中$x,y \in R^n$，${\alpha},{\beta} \in R$，且${\alpha}\geq0$，${\beta}\geq0$，${\alpha} + {\beta} =1$<br>凸优化有唯一最优解。</p>
@@ -1295,6 +1295,21 @@ $(function () {
     <script src="/libs/instantpage/instantpage.js" type="module"></script>
     
 
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </body>
 
 </html>
