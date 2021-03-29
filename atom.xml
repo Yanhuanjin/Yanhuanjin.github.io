@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>King</title>
+  
+  <subtitle>Dream Boosting</subtitle>
+  <link href="http://yanhuanjin.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://yanhuanjin.github.io/"/>
+  <updated>2021-03-29T01:23:39.700Z</updated>
+  <id>http://yanhuanjin.github.io/</id>
+  
+  <author>
+    <name>金彦焕</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习总结(基础篇)</title>
+    <link href="http://yanhuanjin.github.io/2021/03/29/ji-qi-xue-xi-zong-jie-ji-chu-pian/"/>
+    <id>http://yanhuanjin.github.io/2021/03/29/ji-qi-xue-xi-zong-jie-ji-chu-pian/</id>
+    <published>2021-03-29T01:18:16.000Z</published>
+    <updated>2021-03-29T01:23:39.700Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-1-什么是机器学习？&quot;&gt;&lt;a href=&quot;#1-1-什么是机器学习？&quot; class=&quot;headerlink&quot; title=&quot;1.1 什么是机器学习？&quot;&gt;&lt;/a&gt;1.1</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://yanhuanjin.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="Python" scheme="http://yanhuanjin.github.io/tags/Python/"/>
+    
+    <category term="机器学习" scheme="http://yanhuanjin.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用Python行云流水地操作Excel和数据库</title>
+    <link href="http://yanhuanjin.github.io/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/"/>
+    <id>http://yanhuanjin.github.io/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/</id>
+    <published>2021-02-10T06:03:01.000Z</published>
+    <updated>2021-03-25T06:41:55.104Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="Python" scheme="http://yanhuanjin.github.io/categories/Python/"/>
+    
+    
+    <category term="Python" scheme="http://yanhuanjin.github.io/tags/Python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hadoop分布式集群配置错误解决记录</title>
+    <link href="http://yanhuanjin.github.io/2021/01/21/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/"/>
+    <id>http://yanhuanjin.github.io/2021/01/21/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/</id>
+    <published>2021-01-21T09:23:01.000Z</published>
+    <updated>2021-03-25T06:43:02.285Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-背景&quot;&gt;&lt;a href=&quot;#1-背景&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    <category term="BigData" scheme="http://yanhuanjin.github.io/categories/BigData/"/>
+    
+    
+    <category term="Hadoop" scheme="http://yanhuanjin.github.io/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从零开始Django搭建Python Web项目</title>
+    <link href="http://yanhuanjin.github.io/2020/11/10/cong-ling-kai-shi-da-jian-django-xiang-mu/"/>
+    <id>http://yanhuanjin.github.io/2020/11/10/cong-ling-kai-shi-da-jian-django-xiang-mu/</id>
+    <published>2020-11-10T06:03:01.000Z</published>
+    <updated>2020-11-10T06:16:02.716Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h1 id=&quot;从零开始：Django搭建Web&quot;&gt;&lt;a href=&quot;#从零开始：Django搭建Web&quot; class=&quot;headerlink&quot; title=&quot;从零开始：Django搭建Web&quot;&gt;&lt;/a&gt;从零开始：Django搭建Web&lt;/h1&gt;&lt;p&gt;Created: Oct</summary>
+        
+      
+    
+    
+    
+    <category term="Python" scheme="http://yanhuanjin.github.io/categories/Python/"/>
+    
+    
+    <category term="Django" scheme="http://yanhuanjin.github.io/tags/Django/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>SpringBoot注解说明@RequestMapping</title>
+    <link href="http://yanhuanjin.github.io/2020/11/03/java-zhu-jie-requestmapping/"/>
+    <id>http://yanhuanjin.github.io/2020/11/03/java-zhu-jie-requestmapping/</id>
+    <published>2020-11-03T13:03:01.000Z</published>
+    <updated>2020-11-04T00:57:06.003Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;@RequestMapping注解可以将HTTP请求映射给控制器controller来处理，包括返回视图页面的controller和Rest服务的controller。是一个非常常用的注解。&lt;/strong&gt;&lt;/p&gt;
+&lt;/block</summary>
+        
+      
+    
+    
+    
+    <category term="JAVA" scheme="http://yanhuanjin.github.io/categories/JAVA/"/>
+    
+    
+    <category term="Spring Boot" scheme="http://yanhuanjin.github.io/tags/Spring-Boot/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hadoop项目配置</title>
+    <link href="http://yanhuanjin.github.io/2020/01/14/hadoop-xiang-mu-pei-zhi/"/>
+    <id>http://yanhuanjin.github.io/2020/01/14/hadoop-xiang-mu-pei-zhi/</id>
+    <published>2020-01-14T09:23:01.000Z</published>
+    <updated>2021-01-14T07:06:09.832Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-查看Java安装路径&quot;&gt;&lt;a href=&quot;#1-查看Java安装路径&quot; class=&quot;headerlink&quot; title=&quot;1.查看Java安装路径&quot;&gt;&lt;/a&gt;1.查看Java安装路径&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;update-alternatives</summary>
+        
+      
+    
+    
+    
+    <category term="BigData" scheme="http://yanhuanjin.github.io/categories/BigData/"/>
+    
+    
+    <category term="Hadoop" scheme="http://yanhuanjin.github.io/tags/Hadoop/"/>
+    
+  </entry>
+  
+</feed>
