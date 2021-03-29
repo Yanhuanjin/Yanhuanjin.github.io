@@ -517,12 +517,12 @@
 <li>Python（Anaconda和PyCharm都内置，如果只有Python也可）</li>
 <li>MySQL（不多说了，免费）</li>
 </ol>
-<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>数据只要随便找一个Excel文件，自己建一个Excel文档（不论是.xls还是.xlsx后缀都可以），并随便写一些内容，保存为 成绩单.xlsx。<br><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/1.png" alt=""></p>
+<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>数据只要随便找一个Excel文件，自己建一个Excel文档（不论是.xls还是.xlsx后缀都可以），并随便写一些内容，保存为 成绩单.xlsx。<br><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/1.png" alt></p>
 <h2 id="Pandas读取Excel文件"><a href="#Pandas读取Excel文件" class="headerlink" title="Pandas读取Excel文件"></a>Pandas读取Excel文件</h2><pre class="line-numbers language-lang-python"><code class="language-lang-python">import pandas as pd  # 如果没有安装pandas报错，直接在jupyter里面运行后述语句 !pip install pandas
 df = pd.read_excel(r"C:\Users\Administrator\Desktop\成绩单.xlsx")  # 读取test.xlsx的sheet1，并以第一行作为Dataframe的标题头
 df.head()  # 查看表格内容概况
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/2.png" alt=""></p>
+<p><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/2.png" alt></p>
 <h2 id="创建数据库"><a href="#创建数据库" class="headerlink" title="创建数据库"></a>创建数据库</h2><p>打开MySQL，创建数据库students</p>
 <pre class="line-numbers language-lang-python"><code class="language-lang-python"># 创建数据库
 create database students;
@@ -541,13 +541,13 @@ conn = create_engine('mysql+pymysql://username:passwd@localhost:3306/students',e
 # 以df中的header为标题，写入数据库，test替换为数据表名
 pd.io.sql.to_sql(df, "students", conn, if_exists='append', index=False)
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>一般这时候会报错，因为Pandas里面的字段名称和数据库里的字段名称不一致<br><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/3.png" alt=""><br>修改df里面的标题(几种重命名的方式汇总 <a href="https://blog.csdn.net/littleRpl/article/details/100117428" target="_blank" rel="noopener">https://blog.csdn.net/littleRpl/article/details/100117428</a>)</p>
+<p>一般这时候会报错，因为Pandas里面的字段名称和数据库里的字段名称不一致<br><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/3.png" alt><br>修改df里面的标题(几种重命名的方式汇总 <a href="https://blog.csdn.net/littleRpl/article/details/100117428" target="_blank" rel="noopener">https://blog.csdn.net/littleRpl/article/details/100117428</a>)</p>
 <pre class="line-numbers language-lang-python"><code class="language-lang-python">df.rename(columns={'学号':'student_id',
                   '姓名':'name',
                   '成绩':'results'},inplace=True)
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/4.png" alt=""><br>再次尝试写入，成功。我们直接查询student数据表</p>
-<p><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/5.png" alt=""></p>
+<p><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/4.png" alt><br>再次尝试写入，成功。我们直接查询student数据表</p>
+<p><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/5.png" alt></p>
 <h2 id="使用PyMySQL连接数据库进行增删改查"><a href="#使用PyMySQL连接数据库进行增删改查" class="headerlink" title="使用PyMySQL连接数据库进行增删改查"></a>使用PyMySQL连接数据库进行增删改查</h2><h3 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h3><pre class="line-numbers language-lang-python"><code class="language-lang-python">import pymysql
 db = pymysql.connect(host="127.0.0.1", user="root", database="students", passwd="root")  # 主机名，用户名，数据库名称，密码
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -559,18 +559,18 @@ cursor.execute(sql)
 # 获取查询结果
 result = cursor.fetchall()
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>可以看到返回的是一个二维元组<br><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/6.png" alt=""></p>
+<p>可以看到返回的是一个二维元组<br><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/6.png" alt></p>
 <h3 id="增删改操作"><a href="#增删改操作" class="headerlink" title="增删改操作"></a>增删改操作</h3><h4 id="新增记录"><a href="#新增记录" class="headerlink" title="新增记录"></a>新增记录</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python">insert_sql = "INSERT INTO students (student_id, name, results) values ('Y031', 'Jack', 99);"
 cursor.execute(insert_sql)
 db.commit()
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/7.png" alt=""></p>
+<p><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/7.png" alt></p>
 <h4 id="更新记录"><a href="#更新记录" class="headerlink" title="更新记录"></a>更新记录</h4><pre class="line-numbers language-lang-python"><code class="language-lang-python">update_sql = "update students set student_id='Y006' where student_id='Y031';"
 cursor.execute(update_sql)
 db.commit()
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/8.png" alt=""></p>
-<h4 id="删除记录（不建议，一般使用逻辑删除，即新增一个is-delete字段，然后update这个字段）"><a href="#删除记录（不建议，一般使用逻辑删除，即新增一个is-delete字段，然后update这个字段）" class="headerlink" title="删除记录（不建议，一般使用逻辑删除，即新增一个is_delete字段，然后update这个字段）"></a>删除记录（不建议，一般使用逻辑删除，即新增一个is_delete字段，然后update这个字段）</h4><p>同样的也是套用上面的模板进行操作，读者可以自行尝试。<br>这里稍微讲一下逻辑删除的原理，由于我进行了一次物理删除，导致自增id跳过6到了7.<br>如果是逻辑删除，先修改表结构新增is_delete字段<br><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/9.png" alt=""><br>更新指定主键的记录的is_delete属性为1，查询的时候加上限定条件。<br><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/10.png" alt=""></p>
+<p><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/8.png" alt></p>
+<h4 id="删除记录（不建议，一般使用逻辑删除，即新增一个is-delete字段，然后update这个字段）"><a href="#删除记录（不建议，一般使用逻辑删除，即新增一个is-delete字段，然后update这个字段）" class="headerlink" title="删除记录（不建议，一般使用逻辑删除，即新增一个is_delete字段，然后update这个字段）"></a>删除记录（不建议，一般使用逻辑删除，即新增一个is_delete字段，然后update这个字段）</h4><p>同样的也是套用上面的模板进行操作，读者可以自行尝试。<br>这里稍微讲一下逻辑删除的原理，由于我进行了一次物理删除，导致自增id跳过6到了7.<br>如果是逻辑删除，先修改表结构新增is_delete字段<br><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/9.png" alt><br>更新指定主键的记录的is_delete属性为1，查询的时候加上限定条件。<br><img src="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/10.png" alt></p>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>通过Python操作数据库和Excel文件，以Pandas为桥梁，就可以快速进行Excel数据分析，Pandas数据处理，MySQL数据库存储，实现全流程自动化操作。通过数据库连接Web开发组件，Pandas连接机器学习，Excel导出统计报表，实现一站式编程。</p>
 
             </div>
