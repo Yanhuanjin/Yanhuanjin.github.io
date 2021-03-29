@@ -511,14 +511,14 @@
         <div class="card-content article-card-content">
             <div id="articleContent">
                 <h2 id="1-背景"><a href="#1-背景" class="headerlink" title="1.背景"></a>1.背景</h2><p>继上次配置好hadoop真分布式之后，这次启动后，调用hdfs命令总是报错，拒绝9000远程访问，但是端口还是好的（未占用）。搜了一圈网上的解决方案，一个个试过去都不行，最后导致namenode都起不来了，心态差点崩了，就差重新装一遍了。</p>
-<p><img src="/2021/01/21/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/1732977-20210121144036263-2132110927.jpg" alt></p>
+<p><img src="/2021/01/21/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/1732977-20210121144036263-2132110927.jpg" alt=""></p>
 <h2 id="2-排查问题"><a href="#2-排查问题" class="headerlink" title="2.排查问题"></a>2.排查问题</h2><p>后来静下心来慢慢排查，去看logs文件夹下master的日志文件，才知道问题出在哪，namenode没有格式化</p>
 <pre><code>2021-01-21 14:09:36,639 FATAL org.apache.hadoop.hdfs.server.namenode.NameNode: Failed to start namenode.
 java.io.IOException: NameNode is not formatted.
 </code></pre><p>然后尝试格式化namenode，</p>
 <p><code>hdfs namenode -format</code></p>
-<p>报错，报错日志如下图，<br><img src="/2021/01/21/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/1732977-20210121141441519-125675234.png" alt></p>
-<h2 id="3-解决方式"><a href="#3-解决方式" class="headerlink" title="3.解决方式"></a>3.解决方式</h2><p>仔细看了下各个配置文件，发现core-site.xml在配置tmp路径时，多加了个file:，会不会是因为这个？（当时第一感觉就觉得这里不对，但是看网上教程好像都成功了？所以就照做了。现在看来，不能太过信任网上的所谓的最全、最详细教程啊！）<br><img src="/2021/01/21/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/202101/1732977-20210121141708097-226277289.png" alt><br>修改完后，再次格式化namenode文件夹，成功。<br><code>hdfs namenode -format</code></p>
+<p>报错，报错日志如下图，<br><img src="/2021/01/21/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/1732977-20210121141441519-125675234.png" alt=""></p>
+<h2 id="3-解决方式"><a href="#3-解决方式" class="headerlink" title="3.解决方式"></a>3.解决方式</h2><p>仔细看了下各个配置文件，发现core-site.xml在配置tmp路径时，多加了个file:，会不会是因为这个？（当时第一感觉就觉得这里不对，但是看网上教程好像都成功了？所以就照做了。现在看来，不能太过信任网上的所谓的最全、最详细教程啊！）<br><img src="/2021/01/21/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/202101/1732977-20210121141708097-226277289.png" alt=""><br>修改完后，再次格式化namenode文件夹，成功。<br><code>hdfs namenode -format</code></p>
 <p>然后再启动服务，</p>
 <p>开启hdfs服务</p>
 <pre><code>hduser@master:/usr/local/hadoop/etc/hadoop$ start-dfs.sh
