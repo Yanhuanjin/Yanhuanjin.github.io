@@ -6,7 +6,7 @@
   <link href="http://yanhuanjin.github.io/atom.xml" rel="self"/>
   
   <link href="http://yanhuanjin.github.io/"/>
-  <updated>2021-03-25T06:41:55.104Z</updated>
+  <updated>2021-03-29T01:23:39.700Z</updated>
   <id>http://yanhuanjin.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器学习总结(基础篇)</title>
+    <link href="http://yanhuanjin.github.io/2021/03/29/ji-qi-xue-xi-zong-jie-ji-chu-pian/"/>
+    <id>http://yanhuanjin.github.io/2021/03/29/ji-qi-xue-xi-zong-jie-ji-chu-pian/</id>
+    <published>2021-03-29T01:18:16.000Z</published>
+    <updated>2021-03-29T01:23:39.700Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;1-1-什么是机器学习？&quot;&gt;&lt;a href=&quot;#1-1-什么是机器学习？&quot; class=&quot;headerlink&quot; title=&quot;1.1 什么是机器学习？&quot;&gt;&lt;/a&gt;1.1</summary>
+        
+      
+    
+    
+    
+    <category term="机器学习" scheme="http://yanhuanjin.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+    
+    <category term="Python" scheme="http://yanhuanjin.github.io/tags/Python/"/>
+    
+    <category term="机器学习" scheme="http://yanhuanjin.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
   
   <entry>
     <title>用Python行云流水地操作Excel和数据库</title>

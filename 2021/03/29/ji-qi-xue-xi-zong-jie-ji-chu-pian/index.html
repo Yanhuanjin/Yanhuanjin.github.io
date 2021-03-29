@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="从零开始Django搭建Python Web项目, King">
+    <meta name="keywords" content="机器学习总结(基础篇), King">
     <meta name="description" content="Insight into the future.">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>从零开始Django搭建Python Web项目 | King</title>
+    <title>机器学习总结(基础篇) | King</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -325,12 +325,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">从零开始Django搭建Python Web项目</h1>
+                    <h1 class="description center-align post-title">机器学习总结(基础篇)</h1>
                 </div>
             </div>
         </div>
@@ -447,8 +447,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Django/">
-                                <span class="chip bg-color">Django</span>
+                            <a href="/tags/Python/">
+                                <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                <span class="chip bg-color">机器学习</span>
                             </a>
                         
                     </div>
@@ -459,8 +463,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Python/" class="post-category">
-                                Python
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                机器学习
                             </a>
                         
                     </div>
@@ -472,28 +476,28 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-11-10
+                    2021-03-29
                 </div>
                 
 
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-check fa-fw"></i>更新日期:&nbsp;&nbsp;
-                    2020-11-10
+                    2021-03-29
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    168
+                    928
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    1 分
+                    3 分
                 </div>
                 
 
@@ -508,38 +512,60 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="从零开始：Django搭建Web"><a href="#从零开始：Django搭建Web" class="headerlink" title="从零开始：Django搭建Web"></a>从零开始：Django搭建Web</h1><p>Created: Oct 29, 2020 10:39 AM<br>Updated: Nov 10, 2020 2:01 PM</p>
-<ol>
-<li><p>在任意存储位置，新建文件夹，例如DjangoTest。</p>
-<p> <img src="/2020/11/10/cong-ling-kai-shi-da-jian-django-xiang-mu/%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9.png" alt="创建文件夹"></p>
-</li>
-<li><p>在资源管理器地址栏键入cmd，进入命令行界面（对，直接在这里键入cmd）。</p>
-<p> <img src="/2020/11/10/cong-ling-kai-shi-da-jian-django-xiang-mu/%E6%89%93%E5%BC%80%E5%91%BD%E4%BB%A4%E8%A1%8C.png" alt="打开命令行"></p>
-</li>
-<li><p>创建虚拟环境</p>
-<p> 这里环境名称我用test。</p>
-<pre class="line-numbers language-python"><code class="language-python">python <span class="token operator">-</span>m venv test<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>激活虚拟环境</p>
-<pre class="line-numbers language-python"><code class="language-python">test\Scripts\activate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p> 可以看到前面多了一个括号，括号内时虚拟环境的名称</p>
-<p> <img src="/2020/11/10/cong-ling-kai-shi-da-jian-django-xiang-mu/%E6%BF%80%E6%B4%BB%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.png" alt="激活虚拟环境"></p>
-</li>
-<li><p>使用pip安装Django</p>
-<pre class="line-numbers language-python"><code class="language-python">pip install Django<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>在Django中创建项目</p>
-<p> 使用PyCharm打开DjangoTest文件夹，在Terminal窗口中输入</p>
-<pre class="line-numbers language-python"><code class="language-python">django<span class="token operator">-</span>admin<span class="token punctuation">.</span>py startproject my_blog <span class="token punctuation">.</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>创建数据库</p>
-<pre class="line-numbers language-python"><code class="language-python">python manage<span class="token punctuation">.</span>py migrate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>启动服务器</p>
-<pre class="line-numbers language-python"><code class="language-python">python manage<span class="token punctuation">.</span>py runserver<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-</ol>
-<p>完毕。</p>
+                <h2 id="1-1-什么是机器学习？"><a href="#1-1-什么是机器学习？" class="headerlink" title="1.1 什么是机器学习？"></a>1.1 什么是机器学习？</h2><p>机器学习通过算法，对已知数据进行建模，然后用这个模型对新出现的或新得到的数据做出预测或判断。了解机器学习的原理，是解开人工智能这个黑盒子最好的钥匙。<br>机器学习分为监督学习和无监督学习，常见的机器学习算法分类如下</p>
+<div class="wiz-table-container" style="position: relative; padding: 0px;" contenteditable="false"><div class="wiz-table-body" contenteditable="false"><table style="width: 361px;"><tbody><tr><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff">算法名称</td><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff">监督学习</td><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff">无监督学习</td></tr><tr style="height: 35px;"><td align="center" valign="middle" style="width: 120px;">线性回归</td><td align="center" valign="middle" style="width: 120px;">√</td><td align="center" valign="middle" style="width: 120px;"><br></td></tr><tr><td align="center" valign="middle" style="width: 120px;">逻辑回归</td><td align="center" valign="middle" style="width: 120px;"><span>√</span></td><td align="center" valign="middle" style="width: 120px;"><br></td></tr><tr><td align="center" valign="middle" style="width: 120px;">k-近邻</td><td align="center" valign="middle" style="width: 120px;"><span>√</span></td><td align="center" valign="middle" style="width: 120px;"><br></td></tr><tr><td style="width: 120px;" align="center">支持向量机</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">决策树</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">随机森林</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">提升方法（GBM）</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">神经网络</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">主成分分析（PCA）</td><td style="width: 120px;" align="center"><br></td><td style="width: 120px;" align="center"><span>√</span></td></tr><tr><td style="width: 120px;" align="center">聚类分析</td><td style="width: 120px;" align="center"><br></td><td style="width: 120px;" align="center"><span>√</span></td></tr></tbody></table></div></div>
+## 1.2 机器学习基本概念汇总
+###1.    均方误差
+$${\hat f_n} = arg\displaystyle\min_{f}\frac{1}{n}\displaystyle\sum_{i=1}^n(f(X_i)-y_i)^2 $$
+其中，$X_i$为输入，$y_i$为输入对应的标签值，$f(X_i)$为预测值。就是对预测结果和实际结果的误差取平均。
+###2.    最大似然估计
+$$\hat\beta_{MLE} = arg\displaystyle\max_{\beta}logp(\displaystyle\{X_i, Y_i\}_{i=1}^n|\beta)$$
+即在模型参数为$\beta$的情况下，训练样本$X_i$正好对应为$Y_i$出现的条件概率，取最大条件概率，即为最佳模型参数。
+###3.    贝叶斯理论
+$$P(\theta|X)=\frac{P(X|\theta)P(\theta)}{P(X)}$$
+$P(\theta)$表示先验分布，$\theta$表示模型参数集，等式左边为后验分布。
+因此，贝叶斯理论推断可以分为先验、似然、后验三个步骤。
+###4.    凸优化
+$$f(\alpha{x}+\beta{y})\leq{\alpha}f(x)+{\beta}f(y)$$
+其中$x,y \in R^n$，${\alpha},{\beta} \in R$，且${\alpha}\geq0$，${\beta}\geq0$，${\alpha} + {\beta} =1$
+凸优化有唯一最优解。
+###5.    混淆矩阵
+横轴为预测值，纵轴为实际值。
+<div class="wiz-table-container" style="position: relative; padding: 0px;" contenteditable="false"><div class="wiz-table-body" contenteditable="false"><table style="width: 361px;"><tbody><tr><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff"><br></td><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff"><span>预测为阳性</span></td><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff"><span>预测为阴性</span></td></tr><tr><td align="center" valign="middle" style="width:120px"><span>实际为阳性</span></td><td align="center" valign="middle" style="width:120px"><span>TP</span></td><td align="center" valign="middle" style="width:120px">FN</td></tr><tr><td align="center" valign="middle" style="width:120px"><span>实际为阴性</span></td><td align="center" valign="middle" style="width:120px">FP</td><td align="center" valign="middle" style="width:120px">TN</td></tr></tbody></table></div></div>
+###6.    准确率、精确度、召回率和F1评分
+（1）准确率(Accuracy)
+$$Accuracy=\frac{TP+TN}{TP+FN+FP+TN}$$
+即预测准确的个数，占总预测数的比例
+（2）召回率(Recall)
+$$Recall=\frac{TP}{TP+FN}$$
+即预测为真阳性的数目，占所有阳性的比率
+（3）精确度(Precision)
+$$Precison=\frac{TP}{TP+FP}$$
+即预测为真阳性的个数，占所有预测为阳性的比率
+（4）F1评分
+$$F1=2\frac{Precision{\times}Recall}{Precision+Recall}$$
+###7.    ROC曲线
+横轴为假阳性率，纵轴为真阳性率，曲线越陡峭，说明结果越好，曲线下面积（AUC）越大。
+###8.    正则化
+（1）Lasso正则化（L1正则化），系数绝对值总和，乘以惩罚项$\gamma$，特点是可以使无用的系数降为0。
+（2）Ridge回归（L2正则化），系数值的平方和，乘以惩罚项$\gamma$，无法将无用的系数降为0。
+###9.    交叉验证
+（1）留一法（Leave-one-out）
+留一个数据项作为验证，其余参与训练。对于N个数据集的数据，需要进行N次训练。
+（2）K折交叉验证法（K-fold）
+将数据集分为K折，K-1个部分用于训练，1个部分用于验证，所以只需要K次训练。为了避免数据集过于集中带来的误差，在做K折交叉验证之前，需要进行随机洗牌（Shuffle）。
+###10.    Sigmoid函数
+$$f(x)=\frac{1}{1+e^{-x}}$$
+###11.    标准化缩放（Standardize Scaler）
+$$z=\frac{x-\mu}{s}$$
+其中$\mu$是训练样本平均数，$s$是训练样本标准差
+###12.    分类问题损失函数（Cost function）
+交叉熵$$cross\_entropy=-\displaystyle\sum_{i=1}^Cy_i\ln (p_i)$$
+其中，$C$为分类数目，当$C=2$时，成为二分类问题，
+$$cross\_entropy=-y_1\ln(p_1) -y_2\ln(p_2)=-y_1\ln(p_1) -(1-y_1)\ln(1-p_1)$$
+###13.    Softmax函数
+将任意输出$z_i$转化为概率，
+$$softmax(z_i)=\frac{e^{z_i}}{\displaystyle\sum_{j=1}^Ce^{z_j}}$$
 
             </div>
             <hr/>
@@ -565,7 +591,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://yanhuanjin.github.io/2020/11/10/cong-ling-kai-shi-da-jian-django-xiang-mu/">http://yanhuanjin.github.io/2020/11/10/cong-ling-kai-shi-da-jian-django-xiang-mu/</a>
+                    <a href="http://yanhuanjin.github.io/2021/03/29/ji-qi-xue-xi-zong-jie-ji-chu-pian/">http://yanhuanjin.github.io/2021/03/29/ji-qi-xue-xi-zong-jie-ji-chu-pian/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -603,8 +629,12 @@
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Django/">
-                                    <span class="chip bg-color">Django</span>
+                                <a href="/tags/Python/">
+                                    <span class="chip bg-color">Python</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                                    <span class="chip bg-color">机器学习</span>
                                 </a>
                             
                         </div>
@@ -818,46 +848,53 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/01/21/hadoop-fen-bu-shi-ji-qun-pei-zhi-cuo-wu-jie-jue-ji-lu/">
+                <a href="/2021/03/29/ji-qi-xue-xi-zong-jie-ji-chu-pian/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="Hadoop分布式集群配置错误解决记录">
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="机器学习总结(基础篇)">
                         
-                        <span class="card-title">Hadoop分布式集群配置错误解决记录</span>
+                        <span class="card-title">机器学习总结(基础篇)</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            ##1.背景继上次配置好hadoop真分布式之后，这次启动后，调用hdfs命令总是报错，拒绝9000远程访问，但是端口还是好的（未占用）。搜了一圈网上的解决方案，一个个试过去都不行，最后导致namenode都起不来了，心态差点崩了，就差重新
+                            1.1 什么是机器学习？机器学习通过算法，对已知数据进行建模，然后用这个模型对新出现的或新得到的数据做出预测或判断。了解机器学习的原理，是解开人工智能这个黑盒子最好的钥匙。机器学习分为监督学习和无监督学习，常见的机器学习算法分类如下
+算法名
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-29
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/BigData/" class="post-category">
-                                    BigData
+                            <a href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    机器学习
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Hadoop/">
-                        <span class="chip bg-color">Hadoop</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                        <span class="chip bg-color">机器学习</span>
                     </a>
                     
                 </div>
@@ -871,34 +908,32 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/11/03/java-zhu-jie-requestmapping/">
+                <a href="/2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="SpringBoot注解说明@RequestMapping">
+                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="用Python行云流水地操作Excel和数据库">
                         
-                        <span class="card-title">SpringBoot注解说明@RequestMapping</span>
+                        <span class="card-title">用Python行云流水地操作Excel和数据库</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            
-@RequestMapping注解可以将HTTP请求映射给控制器controller来处理，包括返回视图页面的controller和Rest服务的controller。是一个非常常用的注解。
-
-在 Spring MVC 应用程序中，Req
+                            前言本想就着这个机会学习下Java读取Excel的，奈何搜了一圈，发现还是Pandas最为简单明了。打算先就Python写一版，后面在学习时可能还会发一篇《用Java优雅地操作Excel和数据库》。
+准备工作软件包关于软件安装和环境配置，网
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-11-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-10
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/JAVA/" class="post-category">
-                                    JAVA
+                            <a href="/categories/Python/" class="post-category">
+                                    Python
                                 </a>
                             
                             
@@ -908,8 +943,8 @@
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Spring-Boot/">
-                        <span class="chip bg-color">Spring Boot</span>
+                    <a href="/tags/Python/">
+                        <span class="chip bg-color">Python</span>
                     </a>
                     
                 </div>

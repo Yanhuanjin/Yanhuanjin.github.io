@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>机器学习总结(基础篇)</title>
+      <link href="2021/03/29/ji-qi-xue-xi-zong-jie-ji-chu-pian/"/>
+      <url>2021/03/29/ji-qi-xue-xi-zong-jie-ji-chu-pian/</url>
+      
+        <content type="html"><![CDATA[<h2 id="1-1-什么是机器学习？"><a href="#1-1-什么是机器学习？" class="headerlink" title="1.1 什么是机器学习？"></a>1.1 什么是机器学习？</h2><p>机器学习通过算法，对已知数据进行建模，然后用这个模型对新出现的或新得到的数据做出预测或判断。了解机器学习的原理，是解开人工智能这个黑盒子最好的钥匙。<br>机器学习分为监督学习和无监督学习，常见的机器学习算法分类如下</p><div class="wiz-table-container" style="position: relative; padding: 0px;" contenteditable="false"><div class="wiz-table-body" contenteditable="false"><table style="width: 361px;"><tbody><tr><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff">算法名称</td><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff">监督学习</td><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff">无监督学习</td></tr><tr style="height: 35px;"><td align="center" valign="middle" style="width: 120px;">线性回归</td><td align="center" valign="middle" style="width: 120px;">√</td><td align="center" valign="middle" style="width: 120px;"><br></td></tr><tr><td align="center" valign="middle" style="width: 120px;">逻辑回归</td><td align="center" valign="middle" style="width: 120px;"><span>√</span></td><td align="center" valign="middle" style="width: 120px;"><br></td></tr><tr><td align="center" valign="middle" style="width: 120px;">k-近邻</td><td align="center" valign="middle" style="width: 120px;"><span>√</span></td><td align="center" valign="middle" style="width: 120px;"><br></td></tr><tr><td style="width: 120px;" align="center">支持向量机</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">决策树</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">随机森林</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">提升方法（GBM）</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">神经网络</td><td style="width: 120px;" align="center"><span>√</span></td><td style="width: 120px;" align="center"><br></td></tr><tr><td style="width: 120px;" align="center">主成分分析（PCA）</td><td style="width: 120px;" align="center"><br></td><td style="width: 120px;" align="center"><span>√</span></td></tr><tr><td style="width: 120px;" align="center">聚类分析</td><td style="width: 120px;" align="center"><br></td><td style="width: 120px;" align="center"><span>√</span></td></tr></tbody></table></div></div>## 1.2 机器学习基本概念汇总###1.    均方误差$${\hat f_n} = arg\displaystyle\min_{f}\frac{1}{n}\displaystyle\sum_{i=1}^n(f(X_i)-y_i)^2 $$其中，$X_i$为输入，$y_i$为输入对应的标签值，$f(X_i)$为预测值。就是对预测结果和实际结果的误差取平均。###2.    最大似然估计$$\hat\beta_{MLE} = arg\displaystyle\max_{\beta}logp(\displaystyle\{X_i, Y_i\}_{i=1}^n|\beta)$$即在模型参数为$\beta$的情况下，训练样本$X_i$正好对应为$Y_i$出现的条件概率，取最大条件概率，即为最佳模型参数。###3.    贝叶斯理论$$P(\theta|X)=\frac{P(X|\theta)P(\theta)}{P(X)}$$$P(\theta)$表示先验分布，$\theta$表示模型参数集，等式左边为后验分布。因此，贝叶斯理论推断可以分为先验、似然、后验三个步骤。###4.    凸优化$$f(\alpha{x}+\beta{y})\leq{\alpha}f(x)+{\beta}f(y)$$其中$x,y \in R^n$，${\alpha},{\beta} \in R$，且${\alpha}\geq0$，${\beta}\geq0$，${\alpha} + {\beta} =1$凸优化有唯一最优解。###5.    混淆矩阵横轴为预测值，纵轴为实际值。<div class="wiz-table-container" style="position: relative; padding: 0px;" contenteditable="false"><div class="wiz-table-body" contenteditable="false"><table style="width: 361px;"><tbody><tr><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff"><br></td><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff"><span>预测为阳性</span></td><td align="center" valign="middle" style="width: 120px; background-color: rgb(209, 230, 255);" data-background-color="#d1e6ff"><span>预测为阴性</span></td></tr><tr><td align="center" valign="middle" style="width:120px"><span>实际为阳性</span></td><td align="center" valign="middle" style="width:120px"><span>TP</span></td><td align="center" valign="middle" style="width:120px">FN</td></tr><tr><td align="center" valign="middle" style="width:120px"><span>实际为阴性</span></td><td align="center" valign="middle" style="width:120px">FP</td><td align="center" valign="middle" style="width:120px">TN</td></tr></tbody></table></div></div>###6.    准确率、精确度、召回率和F1评分（1）准确率(Accuracy)$$Accuracy=\frac{TP+TN}{TP+FN+FP+TN}$$即预测准确的个数，占总预测数的比例（2）召回率(Recall)$$Recall=\frac{TP}{TP+FN}$$即预测为真阳性的数目，占所有阳性的比率（3）精确度(Precision)$$Precison=\frac{TP}{TP+FP}$$即预测为真阳性的个数，占所有预测为阳性的比率（4）F1评分$$F1=2\frac{Precision{\times}Recall}{Precision+Recall}$$###7.    ROC曲线横轴为假阳性率，纵轴为真阳性率，曲线越陡峭，说明结果越好，曲线下面积（AUC）越大。###8.    正则化（1）Lasso正则化（L1正则化），系数绝对值总和，乘以惩罚项$\gamma$，特点是可以使无用的系数降为0。（2）Ridge回归（L2正则化），系数值的平方和，乘以惩罚项$\gamma$，无法将无用的系数降为0。###9.    交叉验证（1）留一法（Leave-one-out）留一个数据项作为验证，其余参与训练。对于N个数据集的数据，需要进行N次训练。（2）K折交叉验证法（K-fold）将数据集分为K折，K-1个部分用于训练，1个部分用于验证，所以只需要K次训练。为了避免数据集过于集中带来的误差，在做K折交叉验证之前，需要进行随机洗牌（Shuffle）。###10.    Sigmoid函数$$f(x)=\frac{1}{1+e^{-x}}$$###11.    标准化缩放（Standardize Scaler）$$z=\frac{x-\mu}{s}$$其中$\mu$是训练样本平均数，$s$是训练样本标准差###12.    分类问题损失函数（Cost function）交叉熵$$cross\_entropy=-\displaystyle\sum_{i=1}^Cy_i\ln (p_i)$$其中，$C$为分类数目，当$C=2$时，成为二分类问题，$$cross\_entropy=-y_1\ln(p_1) -y_2\ln(p_2)=-y_1\ln(p_1) -(1-y_1)\ln(1-p_1)$$###13.    Softmax函数将任意输出$z_i$转化为概率，$$softmax(z_i)=\frac{e^{z_i}}{\displaystyle\sum_{j=1}^Ce^{z_j}}$$]]></content>
+      
+      
+      <categories>
+          
+          <category> 机器学习 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Python </tag>
+            
+            <tag> 机器学习 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>用Python行云流水地操作Excel和数据库</title>
       <link href="2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/"/>
       <url>2021/02/10/yong-python-xing-yun-liu-shui-cao-zuo-shu-ju-ku/</url>
